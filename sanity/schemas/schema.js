@@ -8,11 +8,20 @@ import faqs from './faqs';
 import ccrs from './ccrs';
 import minutes from './minutes';
 import boardMembers from './boardMembers';
+import MotionMade from '../components/MotionMade';
+import OtherMembers from '../components/OtherMembers';
 
 export default createSchema({
   // We name our schema
   name: 'default',
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([boardMembers, faqs, ccrs, minutes]),
+  types: schemaTypes.concat([
+    boardMembers,
+    faqs,
+    ccrs,
+    minutes,
+    MotionMade,
+    OtherMembers,
+  ]),
 });

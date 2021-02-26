@@ -10,8 +10,9 @@ export default {
       'We help the Powder Ridge community in Grand Junction, CO remain ordered. We live life, together.',
   },
   plugins: [
+    'gatsby-plugin-styled-components',
     {
-      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      resolve: 'gatsby-source-sanity',
       options: {
         projectId: '1oaoktsj',
         dataset: 'production',
