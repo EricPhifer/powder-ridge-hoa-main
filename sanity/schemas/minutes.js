@@ -12,7 +12,7 @@ export default {
       type: 'string',
     },
     {
-      name: 'dateTime',
+      name: 'meetingStart',
       title: 'Date & Time of Meeting Start',
       type: 'datetime',
       options: {
@@ -25,7 +25,7 @@ export default {
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'dateTime',
+        source: 'meetingStart',
         maxLength: 100,
       },
     },
@@ -98,7 +98,7 @@ export default {
   preview: {
     select: {
       title: 'title',
-      date: 'dateTime',
+      date: 'meetingStart',
       media: 'image',
     },
     prepare(selection) {
