@@ -28,7 +28,7 @@ export default {
       },
     },
     {
-      name: 'reference',
+      name: 'refId',
       title: 'Document Reference',
       type: 'string',
       description: 'What is the reference ID?',
