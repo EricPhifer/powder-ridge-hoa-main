@@ -10,13 +10,13 @@ const NavStyles = styled.nav`
     text-align: center;
     list-style: none;
     display: grid;
-    grid-template-columns: auto 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 2rem;
     align-items: center;
     font-variant: small-caps;
   }
   a {
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-decoration: none;
     position: relative;
     &:after {
@@ -57,6 +57,9 @@ export default function Nav() {
         </li>
         <li>
           <Link to="/boardMembers">Board Members</Link>
+        </li>
+        <li>
+          <Link to="/minutes">Board Minutes</Link>
         </li>
       </ul>
     </NavStyles>

@@ -20,7 +20,7 @@ export default class Search extends Component {
     this.setState({
       query,
       results: this.index
-        .search(query, {})
+        .search(query, { expand: true })
         .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     });
   };
