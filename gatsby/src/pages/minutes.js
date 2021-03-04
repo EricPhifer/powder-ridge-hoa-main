@@ -13,24 +13,10 @@ export default function Minutes({ data }) {
 }
 
 export const query = graphql`
-  query MinutesSearchQuery {
+  query MinuteSearchQuery {
     minutes: allSanityMinutes {
       nodes {
         tags
-        addMotion {
-          motionPerson
-          motionName
-        }
-        members {
-          ... on SanityBoardMembers {
-            id
-            email
-          }
-          ... on SanityOtherMembers {
-            _key
-            _type
-          }
-        }
         meetingStart
       }
     }
