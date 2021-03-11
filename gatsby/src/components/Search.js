@@ -1,49 +1,71 @@
-import React, { Component } from 'react';
-import { Index } from 'elasticlunr';
-import { Link } from 'gatsby';
+import React from 'react';
+import { useLazyQuery } from '@apollo/client';
+import { resetIdCounter, useCombobox } from 'downshift';
+import { graphql } from 'gatsby';
+import { debounce } from 'lodash';
+import { DropDown, DropDownItem, SearchStyles } from '../styles/DropDown';
 
-export default class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: ``,
-      results: [],
-    };
+const SEARCH_QUERY = graphql`
+  query SEARCH_QUERY($searchTerm: String!) {
+    searchTerms: allSanityMinutes(
+      where: {
+        OR: [
+          { tags_contains_i: $searchTerm }
+          { meetingStart_contains_i: $searchTerm }
+        ]
+      }
+    ) {
+      id
+      name
+      tags
+      meetingStart
+    }
   }
+`;
 
-  getOrCreateIndex = () =>
-    this.Index ? this.Index : Index.load(this.props.searchIndex);
-
-  search = (evt) => {
-    const query = evt.target.value;
-    this.index = this.getOrCreateIndex();
-    this.setState({
-      query,
-      results: this.index
-        .search(query, { expand: true })
-        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
-    });
-  };
-
-  render() {
-    return (
-      <div>
+export default function Search() {
+  const [findItems, { loading, data, error }] = useLazyQuery(SEARCH_QUERY, {
+    fetchPolicy: 'no-cache',
+  });
+  const findItemsButChill = debounce(findItems, 350);
+  resetIdCounter();
+  const {
+    inputValue,
+    getMenuProps,
+    getInputProps,
+    getComboboxProps,
+  } = useCombobox({
+    items: [],
+    onInputValueChange() {
+      console.log('Input changed');
+      findItemsButChill({
+        variables: {
+          searchTerm: inputValue,
+        },
+      });
+    },
+    onSelectedItemChange() {
+      console.log('Selected Item changed');
+    },
+  });
+  return (
+    <SearchStyles>
+      <div {...getComboboxProps()}>
         <input
-          type="text"
-          value={this.state.query}
-          onChange={this.search}
-          placeholder="Search by Reference ID or Keyword"
-          className="searchField"
+          {...getInputProps({
+            type: 'search',
+            placeholder: `Placeholder Text`,
+            id: 'search',
+            className: loading ? 'loading' : '',
+          })}
         />
-        <ul>
-          {this.state.results.map((page) => (
-            <li key={page.id}>
-              <Link to={`/${page.path}`}>{page.title}</Link>
-              {`: ${page.tags.join(',')}`}
-            </li>
-          ))}
-        </ul>
       </div>
-    );
-  }
+      <DropDown {...getMenuProps()}>
+        <DropDownItem>Hey</DropDownItem>
+        <DropDownItem>Hey</DropDownItem>
+        <DropDownItem>Hey</DropDownItem>
+        <DropDownItem>Hey</DropDownItem>
+      </DropDown>
+    </SearchStyles>
+  );
 }

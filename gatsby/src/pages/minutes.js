@@ -2,12 +2,11 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Search from '../components/Search';
 
-export default function Minutes({ data }) {
-  const minutes = data.minutes.nodes;
+export default function Minutes() {
   return (
     <>
       <h2>Board Minutes</h2>
-      <Search minutes={minutes} />
+      <Search />
     </>
   );
 }
