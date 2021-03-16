@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
 
 const NavStyles = styled.nav`
   margin-bottom: 3rem;
@@ -37,7 +37,7 @@ const NavStyles = styled.nav`
       color: var(--red);
     }
   }
-`;
+`
 
 export default function Nav() {
   return (
@@ -63,5 +63,5 @@ export default function Nav() {
         </li>
       </ul>
     </NavStyles>
-  );
+  )
 }

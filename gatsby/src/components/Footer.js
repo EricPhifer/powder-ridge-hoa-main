@@ -1,6 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'gatsby';
+import React from 'react'
+import styled from 'styled-components'
 
 const FooterStyles = styled.div`
   ul {
@@ -19,7 +18,7 @@ const FooterStyles = styled.div`
       color: tomato;
     }
   }
-`;
+`
 
 export default function Footer() {
   return (
@@ -35,5 +34,5 @@ export default function Footer() {
         </ul>
       </FooterStyles>
     </footer>
-  );
+  )
 }

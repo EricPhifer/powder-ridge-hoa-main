@@ -1,9 +1,9 @@
-import React from 'react';
-import { useLazyQuery } from '@apollo/client';
-import { resetIdCounter, useCombobox } from 'downshift';
-import { graphql } from 'gatsby';
-import { debounce } from 'lodash';
-import { DropDown, DropDownItem, SearchStyles } from '../styles/DropDown';
+import React from 'react'
+import { useLazyQuery } from '@apollo/client'
+import { resetIdCounter, useCombobox } from 'downshift'
+import { graphql } from 'gatsby'
+import { debounce } from 'lodash'
+import { DropDown, DropDownItem, SearchStyles } from '../styles/DropDown'
 
 const SEARCH_QUERY = graphql`
   query SEARCH_QUERY($searchTerm: String!) {
@@ -21,14 +21,14 @@ const SEARCH_QUERY = graphql`
       meetingStart
     }
   }
-`;
+`
 
 export default function Search() {
   const [findItems, { loading, data, error }] = useLazyQuery(SEARCH_QUERY, {
     fetchPolicy: 'no-cache',
-  });
-  const findItemsButChill = debounce(findItems, 350);
-  resetIdCounter();
+  })
+  const findItemsButChill = debounce(findItems, 350)
+  resetIdCounter()
   const {
     inputValue,
     getMenuProps,
@@ -37,24 +37,24 @@ export default function Search() {
   } = useCombobox({
     items: [],
     onInputValueChange() {
-      console.log('Input changed');
+      console.log('Input changed')
       findItemsButChill({
         variables: {
           searchTerm: inputValue,
         },
-      });
+      })
     },
     onSelectedItemChange() {
-      console.log('Selected Item changed');
+      console.log('Selected Item changed')
     },
-  });
+  })
   return (
     <SearchStyles>
       <div {...getComboboxProps()}>
         <input
           {...getInputProps({
             type: 'search',
-            placeholder: `Placeholder Text`,
+            placeholder: 'Placeholder Text',
             id: 'search',
             className: loading ? 'loading' : '',
           })}
@@ -67,5 +67,5 @@ export default function Search() {
         <DropDownItem>Hey</DropDownItem>
       </DropDown>
     </SearchStyles>
-  );
+  )
 }

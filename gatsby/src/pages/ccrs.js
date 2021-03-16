@@ -1,5 +1,5 @@
-import React from 'react';
-import Search from '../components/Search';
+import React from 'react'
+import Search from '../components/Search'
 
 export default function Ccrs() {
   return (
@@ -7,5 +7,5 @@ export default function Ccrs() {
       <h2>Covenants, Conditions &amp; Restrictions</h2>
       <Search />
     </>
-  );
+  )
 }
