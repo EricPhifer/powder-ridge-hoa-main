@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import { debounce } from 'lodash';
 import { DropDown, DropDownItem, SearchStyles } from '../styles/DropDown';
 
-const SEARCH_QUERY = graphql`
+export const SEARCH_QUERY = graphql`
   query SEARCH_QUERY($searchTerm: String!) {
     searchTerms: allSanityMinutes(
       where: {
