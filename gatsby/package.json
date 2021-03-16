@@ -39,6 +39,7 @@
     "gatsby-source-sanity": "^6.0.4",
     "graphql": "^15.5.0",
     "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
     "netlify-cli": "^2.62.0",
     "netlify-lambda": "^2.0.1",

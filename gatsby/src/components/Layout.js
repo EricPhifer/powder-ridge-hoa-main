@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import Footer from './Footer'
-import 'normalize.css'
-import Nav from './Nav'
-import GlobalStyles from '../styles/GlobalStyles'
-import Typography from '../styles/Typography'
+import React from 'react';
+import styled from 'styled-components';
+import Footer from './Footer';
+import 'normalize.css';
+import Nav from './Nav';
+import GlobalStyles from '../styles/GlobalStyles';
+import Typography from '../styles/Typography';
 
 const SiteBorderStyles = styled.div`
   max-width: 1000px;
@@ -26,12 +26,12 @@ const SiteBorderStyles = styled.div`
     margin-left: 1.5rem;
     margin-right: 1.5rem;
   }
-`
+`;
 
 const ContentStyles = styled.div`
   background: white;
   padding: 2rem;
-`
+`;
 
 export default function Layout({ children }) {
   return (
@@ -46,5 +46,5 @@ export default function Layout({ children }) {
         </ContentStyles>
       </SiteBorderStyles>
     </>
-  )
+  );
 }

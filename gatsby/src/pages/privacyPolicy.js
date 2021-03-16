@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function PrivacyPolicy() {
   return (
@@ -55,5 +55,5 @@ export default function PrivacyPolicy() {
         cillum. Occaecat ea irure occaecat ex incididunt.
       </p>
     </>
-  )
+  );
 }

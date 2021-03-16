@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const FooterStyles = styled.div`
   ul {
@@ -18,7 +18,7 @@ const FooterStyles = styled.div`
       color: tomato;
     }
   }
-`
+`;
 
 export default function Footer() {
   return (
@@ -27,12 +27,12 @@ export default function Footer() {
         <ul>
           <li>&copy; Powder Ridge HOA {new Date().getFullYear()}</li>
           <li>
-            <a href="https://ericphifer.com" target="_blank">
+            <a href="https://ericphifer.com" target="_blank" rel="noreferrer">
               Designed &amp; Developed by Eric Phifer LLC
             </a>
           </li>
         </ul>
       </FooterStyles>
     </footer>
-  )
+  );
 }
