@@ -1,10 +1,3 @@
-import React from 'react';
-import { useLazyQuery } from '@apollo/client';
-import { resetIdCounter, useCombobox } from 'downshift';
-import { graphql } from 'gatsby';
-import { debounce } from 'lodash';
-import { DropDown, DropDownItem, SearchStyles } from '../styles/DropDown';
-
 export const SEARCH_QUERY = graphql`
   query SEARCH_QUERY($searchTerm: String!) {
     searchTerms: allSanityMinutes(
@@ -21,7 +14,6 @@ export const SEARCH_QUERY = graphql`
       meetingStart
     }
   }
-`;
 
 export default function Search() {
   const [findItems, { loading, data, error }] = useLazyQuery(SEARCH_QUERY, {
@@ -47,8 +39,7 @@ export default function Search() {
     onSelectedItemChange() {
       console.log('Selected Item changed');
     },
-  });
-  /* eslint-disable */
+  );
   return (
     <SearchStyles>
       <div {...getComboboxProps()}>
@@ -60,13 +51,17 @@ export default function Search() {
             className: loading ? 'loading' : '',
           })}
         />
+        <ul>
+          {this.state.results.map((page) => (
+            <li key={page.id}>
+              <Link to={`/${page.path}`}>
+                {page.title}
+              </Link>
+              {`: ${page.tags.join(',')}`}
+            </li>
+          ))}
+        </ul>
       </div>
-      <DropDown {...getMenuProps()}>
-        <DropDownItem>Hey</DropDownItem>
-        <DropDownItem>Hey</DropDownItem>
-        <DropDownItem>Hey</DropDownItem>
-        <DropDownItem>Hey</DropDownItem>
-      </DropDown>
     </SearchStyles>
-  );
-}
+    )
+  };
