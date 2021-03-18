@@ -7,7 +7,7 @@ export default function Minutes() {
   return (
     <>
       <h2>Board Minutes</h2>
-      <Search minutes={minutes} />
+      <Search />
     </>
   );
 }
