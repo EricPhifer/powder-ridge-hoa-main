@@ -4,15 +4,14 @@ import PaginationStyles from '../styles/PaginationStyles';
 import DisplayError from './ErrorMessage';
 import { perPage } from '../../config';
 
-export const PAGINATION_QUERY = graphql`
-  query PAGINATION_QUERY {
-    allSiteBuildMetadata {
-      totalCount
-    }
-  }
-`;
-
 export default function Pagination({ page }) {
+  const PAGINATION_QUERY = graphql`
+    query PAGINATION_QUERY {
+      allSiteBuildMetadata {
+        totalCount
+      }
+    }
+  `;
   const { error, loading, data } = useQuery(PAGINATION_QUERY);
   if (loading) return 'Loading...';
   if (error) return <DisplayError error={error} />;

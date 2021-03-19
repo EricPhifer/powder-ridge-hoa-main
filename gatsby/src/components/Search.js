@@ -1,5 +1,8 @@
+import React from 'react';
+import { useLazyQuery } from '@apollo/client';
 import { resetIdCounter, useCombobox } from 'downshift';
 import { useStaticQuery, graphql } from 'gatsby';
+import { debounce } from 'lodash';
 import { DropDown, DropDownItem, SearchStyles } from '../styles/DropDown.js';
 
 export default function Search() {
@@ -15,11 +18,26 @@ export default function Search() {
       }
     }
   `);
+  const [findItems, { loading, data, error }] = useLazyQuery(SEARCH_QUERY, {
+    fetchPolicy: 'no-cache',
+  });
+  console.log(data);
+  const findItemsButChill = debounce(findItems, 350);
   resetIdCounter();
-  const { getMenuProps, getInputProps, getComboboxProps } = useCombobox({
+  const {
+    inputValue,
+    getMenuProps,
+    getInputProps,
+    getComboboxProps,
+  } = useCombobox({
     items: [],
     onInputValueChange() {
       console.log('Input changed!');
+      findItemsButChill({
+        variables: {
+          searchTerm: inputValue,
+        },
+      });
     },
     onSelectedItemChange() {
       console.log('Selected Item changed!');
