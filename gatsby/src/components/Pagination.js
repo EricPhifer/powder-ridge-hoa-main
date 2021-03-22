@@ -1,18 +1,19 @@
 import { useQuery } from '@apollo/client';
-import { Link, Head, graphql, useStaticQuery } from 'gatsby';
+import { Link, Head, graphql } from 'gatsby';
 import PaginationStyles from '../styles/PaginationStyles';
 import DisplayError from './ErrorMessage';
 import { perPage } from '../../config';
 
-export default function Pagination({ page }) {
-  const { allData } = useStaticQuery(graphql`
-    query {
-      allData: allSiteBuildMetadata {
-        totalCount
-      }
+export const PAGINATION_QUERY = graphql`
+  query PAGINATION_QUERY {
+    allSiteBuildMetadata {
+      totalCount
     }
-  `);
-  const { error, loading, data } = useQuery(allData);
+  }
+`;
+
+export default function Pagination({ page }) {
+  const { error, loading, data } = useQuery(PAGINATION_QUERY);
   if (loading) return 'Loading...';
   if (error) return <DisplayError error={error} />;
   const { count } = data.allSiteBuildMetadata;

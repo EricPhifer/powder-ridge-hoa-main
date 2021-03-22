@@ -4,7 +4,7 @@ import { getDataFromTree } from '@apollo/client/react/ssr';
 import { createUploadLink } from 'apollo-upload-client';
 import withApollo from 'gatsby-plugin-apollo';
 import { endpoint, prodEndpoint } from '../../config';
-import PaginationField from '../components/PaginationField';
+import paginationField from './paginationField';
 
 function createClient({ headers, initialState }) {
   return new ApolloClient({
@@ -36,10 +36,10 @@ function createClient({ headers, initialState }) {
         Query: {
           fields: {
             // TODO: We will add this together!
-            allSanityMinutes: PaginationField(),
-            allSanityCcrs: PaginationField(),
-            allSanityBoardMembers: PaginationField(),
-            allSanityFaqs: PaginationField(),
+            allSanityMinutes: paginationField(),
+            allSanityCcrs: paginationField(),
+            allSanityBoardMembers: paginationField(),
+            allSanityFaqs: paginationField(),
           },
         },
       },
@@ -47,4 +47,4 @@ function createClient({ headers, initialState }) {
   });
 }
 
-export default createClient;
+export default withApollo(createClient, { getDataFromTree });

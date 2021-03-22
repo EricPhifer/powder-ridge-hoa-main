@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-export default function PaginationField() {
+export default function paginationField() {
   const { allData } = useStaticQuery(graphql`
     query {
       allData: allSiteBuildMetadata {
