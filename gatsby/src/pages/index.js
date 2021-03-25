@@ -6,6 +6,7 @@ import React from 'react';
 export default function HomePage() {
   return (
     <>
+      <h2>Welcome to Powder Ridge HOA!</h2>
       <p>hello, Im the home page</p>
       <p>Im another element</p>
     </>
