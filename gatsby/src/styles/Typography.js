@@ -9,6 +9,7 @@ const Typography = createGlobalStyle`
     letter-spacing: 0.5px;
   }
   h1,h2,h3,h4,h5,h6 {
+    text-align: center;
     font-weight: normal;
     margin: 0;
   }
@@ -33,6 +34,7 @@ const Typography = createGlobalStyle`
   .tilt {
     transform: rotate(-2deg);
   }
+  
 `;
 
 export default Typography;

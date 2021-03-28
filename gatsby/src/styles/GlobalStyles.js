@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import bg from '../assets/images/bg.svg';
 import stripes from '../assets/images/stripes.svg';
 
 const GlobalStyles = createGlobalStyle`
@@ -41,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
       --cast: 4px;
     }
   }
-
+  
   .gatsby-image-wrapper img[src*=base64\\,] {
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;

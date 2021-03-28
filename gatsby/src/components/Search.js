@@ -1,18 +1,26 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import styled from 'styled-components';
+
+export const SearchStyles = styled.div`
+  text-align: center;
+  div {
+    margin: 12px;
+  }
+  input {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 2rem;
+    width: 40vw;
+  }
+`;
 
 export default function Search() {
-  const SEARCH_QUERY = useStaticQuery(graphql`
-    query {
-      allSanityMinutes {
-        nodes {
-          tags
-          meetingStart
-          id
-          name
-        }
-      }
-    }
-  `);
-  return <div>Search Bar</div>;
+  return (
+    <SearchStyles>
+      <div>
+        <input placeholder="Search by Keywords" />
+      </div>
+    </SearchStyles>
+  );
 }
