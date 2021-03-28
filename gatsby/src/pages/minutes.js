@@ -1,13 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Search from '../components/Search';
+import { PageCardStyles } from '../styles/PageCardStyles';
+import MinutesItemGrid from '../components/MinutesIemGrid';
 
 export default function Minutes() {
-  console.log('This shows errors');
   return (
     <>
       <h2>Board Minutes</h2>
       <Search />
+      <PageCardStyles>
+        <MinutesItemGrid />
+      </PageCardStyles>
     </>
   );
 }

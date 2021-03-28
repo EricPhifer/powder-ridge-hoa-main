@@ -31,6 +31,9 @@ const SiteBorderStyles = styled.div`
 const ContentStyles = styled.div`
   background: white;
   padding: 2rem;
+  h2 {
+    text-decoration: underline;
+  }
 `;
 
 export default function Layout({ children }) {

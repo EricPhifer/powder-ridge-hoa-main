@@ -19,9 +19,9 @@ export default function FaqItemGrid() {
     <CardStyles>
       <ItemStyles>
         {allFaqs.map((faq) => (
-          <div className="faqCard" key={faq.id}>
-            <div className="question">{faq.question}</div>
-            <div className="answer">{faq.answer}</div>
+          <div className="card" key={faq.id}>
+            <div className="title">{faq.question}</div>
+            <div className="content">{faq.answer}</div>
           </div>
         ))}
       </ItemStyles>
