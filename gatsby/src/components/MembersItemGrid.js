@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Img } from 'gatsby-image';
 import { CardStyles, ItemStyles } from '../styles/PageCardStyles';
 
 export default function MembersItemGrid() {
@@ -16,8 +15,8 @@ export default function MembersItemGrid() {
           position
           image {
             asset {
-              fluid {
-                src
+              fluid(maxWidth: 410) {
+                ...GatsbySanityImageFluid
               }
             }
           }
@@ -28,17 +27,21 @@ export default function MembersItemGrid() {
   const allMembers = members.nodes;
   return (
     <CardStyles>
-      <ItemStyles>
-        {allMembers.map((member) => (
-          <div className="card" key={member.id}>
+      {allMembers.map((member) => (
+        <ItemStyles key={member.id}>
+          <div>
             <div className="memberName">{member.name}</div>
             <div className="position">{member.position}</div>
+          </div>
+          <div className="card">
             <div className="description">{member.description}</div>
             <div className="content">{member.email}</div>
-            <div className="content">{member.phone}</div>
+            <a href={member.phone} className="content">
+              Call {member.name}
+            </a>
           </div>
-        ))}
-      </ItemStyles>
+        </ItemStyles>
+      ))}
     </CardStyles>
   );
 }

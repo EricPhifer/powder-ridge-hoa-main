@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Search from '../components/Search';
 import { PageCardStyles } from '../styles/PageCardStyles';
-import MinutesItemGrid from '../components/MinutesIemGrid';
+import MinutesItemGrid from '../components/MinutesItemGrid';
 
 export default function Minutes() {
   return (

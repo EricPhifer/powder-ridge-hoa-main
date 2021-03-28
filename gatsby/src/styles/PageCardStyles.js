@@ -15,6 +15,7 @@ export const ItemStyles = styled.div`
     text-align: center;
   }
   .card {
+    width: 90%;
     margin: 2rem;
     padding: 2rem;
     border: 1px black solid;
@@ -42,5 +43,13 @@ export const ItemStyles = styled.div`
   }
   .rightAlign {
     text-align: right;
+  }
+  a {
+    text-decoration: none;
+    color: orangered;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: orange;
   }
 `;

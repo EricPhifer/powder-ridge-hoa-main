@@ -1,5 +1,5 @@
 import React from 'react';
-import CcrsItemGrid from '../components/CcrIemGrid';
+import CcrsItemGrid from '../components/CcrItemGrid';
 import Search from '../components/Search';
 import { PageCardStyles } from '../styles/PageCardStyles';
 
