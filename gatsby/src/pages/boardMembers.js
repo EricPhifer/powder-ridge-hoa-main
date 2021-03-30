@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby';
+import SanityImage from 'gatsby-plugin-sanity-image';
 import React from 'react';
 import {
   CardStyles,
@@ -6,7 +7,7 @@ import {
   PageCardStyles,
 } from '../styles/PageCardStyles';
 
-export default function BoardMembers({ data }) {
+export default function BoardMembers({ data, image }) {
   const members = data.members.nodes;
   return (
     <>
@@ -20,6 +21,17 @@ export default function BoardMembers({ data }) {
           {members.map((member) => (
             <ItemStyles key={member.id}>
               <div>
+                <SanityImage
+                  {...image}
+                  alt={member.name}
+                  width={410}
+                  height={300}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
                 <div className="memberName">{member.name}</div>
                 <div className="position">{member.position}</div>
               </div>
@@ -49,11 +61,7 @@ export const query = graphql`
         phone
         position
         image {
-          asset {
-            fluid(maxWidth: 410) {
-              ...GatsbySanityImageFluid
-            }
-          }
+          ...ImageWithPreview
         }
       }
     }
