@@ -25,11 +25,6 @@ export const ItemStyles = styled.div`
     font-weight: bold;
     padding-bottom: 1rem;
   }
-  .memberName {
-    padding-bottom: 0;
-    font-weight: bold;
-    font-size: 2.2rem;
-  }
   .position {
     padding-top: 0;
     padding-bottom: 1rem;
