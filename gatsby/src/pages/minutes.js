@@ -18,7 +18,7 @@ export default function Minutes() {
 
 export const query = graphql`
   query MinuteSearchQuery {
-    minutes: allSanityMinutes {
+    search: allSanityMinutes {
       nodes {
         tags
         meetingStart

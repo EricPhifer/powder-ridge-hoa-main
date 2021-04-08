@@ -81,6 +81,7 @@ export default {
         ref: 'id',
         index: ['all fields'],
         store: ['all fields'],
+        // TODO: create an array of arrays (of query categories) & flatten them into one using .flat()
         normalizer: ({ data }) =>
           data.allSanityMinutes.nodes.map((node) => ({
             id: node.id,
