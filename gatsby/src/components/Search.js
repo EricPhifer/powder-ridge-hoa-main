@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useFlexSearch } from 'react-use-flexsearch';
+import React from 'react';
 import styled from 'styled-components';
 
 export const SearchStyles = styled.div`
@@ -16,23 +15,11 @@ export const SearchStyles = styled.div`
   }
 `;
 
-export const index = {};
-export const store = {};
-
 export default function Search() {
-  const [query, setQuery] = useState(null);
-  const results = useFlexSearch(query, index, store);
   return (
     <SearchStyles>
       <div>
-        <input
-          initialValues={{ query: '' }}
-          onSubmit={(values, { setSubmitting }) => {
-            setQuery(values.query);
-            setSubmitting(false);
-          }}
-          placeholder="Search by Keywords"
-        />
+        <input placeholder="Search by Keywords" />
       </div>
     </SearchStyles>
   );
