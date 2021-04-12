@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import bg from '../assets/images/bg.jpg';
 
 const NavStyles = styled.nav`
   margin-bottom: 3rem;
@@ -10,10 +11,15 @@ const NavStyles = styled.nav`
     text-align: center;
     list-style: none;
     display: grid;
-    grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto 1fr 1fr 1fr 1fr;
     grid-gap: 2rem;
     align-items: center;
     font-variant: small-caps;
+    li .logo {
+      width: 200px;
+      height: auto;
+      background-color: black;
+    }
   }
   a {
     font-size: 2rem;
@@ -44,10 +50,7 @@ export default function Nav() {
     <NavStyles>
       <ul>
         <li>
-          <Link to="/">LOGO</Link>
-        </li>
-        <li>
-          <Link to="/">Home</Link>
+          <Link to="/" className="logo" />
         </li>
         <li>
           <Link to="/faqs">FAQs</Link>

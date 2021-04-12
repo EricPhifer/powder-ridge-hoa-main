@@ -38,7 +38,7 @@ export default {
     select: {
       title: 'ccr',
       media: 'image',
-      subtitle: 'reference',
+      subtitle: 'refId',
     },
   },
 };

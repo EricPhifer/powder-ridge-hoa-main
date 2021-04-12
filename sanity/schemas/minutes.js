@@ -8,8 +8,21 @@ export default {
   fields: [
     {
       name: 'name',
-      title: 'Name of Organization',
-      type: 'string',
+      title: 'Name of Person that Called the Meeting to Order',
+      type: 'array',
+      of: [
+        {
+          name: 'boardMembers',
+          title: 'Board member calling to order',
+          type: 'reference',
+          to: [{ type: 'boardMembers' }],
+        },
+        {
+          name: 'OtherMembers',
+          title: 'Other member calling to order',
+          type: 'OtherMembers',
+        },
+      ],
     },
     {
       name: 'meetingStart',
@@ -30,6 +43,11 @@ export default {
       },
     },
     {
+      name: 'teleconference',
+      title: 'Via Video Chat?',
+      type: 'boolean',
+    },
+    {
       name: 'members',
       title: 'Members in Attendance',
       type: 'array',
@@ -48,36 +66,14 @@ export default {
       ],
     },
     {
-      name: 'quorum',
-      title: 'Number of Members Present',
-      type: 'number',
-      /* What is required minimum? */
+      name: 'oldBusiness',
+      title: 'Old Business Notes',
+      type: 'text',
     },
     {
-      name: 'quorumReached',
-      title: 'Minimum Number Achieved?',
-      type: 'boolean',
-      description: 'Required minimum present is 3',
-      /* What is required minimum? */
-    },
-    {
-      name: 'addMotion',
-      title: 'Motion Made',
-      type: 'array',
-      of: [
-        {
-          type: 'MotionMade',
-        },
-      ],
-    },
-    {
-      name: 'endTime',
-      title: 'Time Meeting Ended',
-      type: 'datetime',
-      options: {
-        timeFormat: 'h:mmA',
-        dateFormat: 'dddd, MMMM Do YYYY',
-      },
+      name: 'newBusiness',
+      title: 'New Business Notes',
+      type: 'text',
     },
     {
       name: 'tags',
@@ -88,10 +84,18 @@ export default {
           type: 'string',
         },
       ],
-      // TODO: add a line break in description
       description: `Keywords for search field. Enter tags with comma & space between words.`,
       options: {
         layout: 'tags',
+      },
+    },
+    {
+      name: 'endTime',
+      title: 'Time Meeting Ended',
+      type: 'datetime',
+      options: {
+        timeFormat: 'h:mmA',
+        dateFormat: 'dddd, MMMM Do YYYY',
       },
     },
   ],

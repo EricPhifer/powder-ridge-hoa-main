@@ -6,10 +6,12 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 import faqs from './faqs';
 import ccrs from './ccrs';
+import acc from './acc';
 import minutes from './minutes';
 import boardMembers from './boardMembers';
 import MotionMade from '../components/MotionMade';
 import OtherMembers from '../components/OtherMembers';
+import AccMembers from '../components/AccMembers';
 
 export default createSchema({
   // We name our schema
@@ -18,10 +20,12 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     boardMembers,
+    acc,
     faqs,
     ccrs,
     minutes,
     MotionMade,
     OtherMembers,
+    AccMembers,
   ]),
 });
