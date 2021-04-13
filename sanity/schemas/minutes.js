@@ -66,6 +66,11 @@ export default {
       ],
     },
     {
+      name: 'contributors',
+      title: 'Number of People who Contributed Proxy Information',
+      type: 'number',
+    },
+    {
       name: 'oldBusiness',
       title: 'Old Business Notes',
       type: 'text',

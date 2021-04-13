@@ -7,39 +7,36 @@ export default function MinutesItemGrid() {
     query {
       minutes: allSanityMinutes {
         nodes {
-          tags
-          meetingStart
+          contributors
+          endTime(formatString: "h:mm z")
           id
-          name
-          addMotion {
-            abstainersDissenters
-            actionSteps
-            approvedDenied
-            debateAccount
-            documents {
-              asset {
-                id
-                assetId
-              }
-            }
-            motionDescription
-            motionName
-            motionPerson
-          }
-          endTime
+          meetingStart(formatString: "h:mm z")
           members {
             ... on SanityBoardMembers {
+              id
+              email
+              phone
               name
-              slug {
-                current
-              }
             }
             ... on SanityOtherMembers {
               newMember
             }
           }
-          quorum
-          quorumReached
+          name {
+            ... on SanityBoardMembers {
+              id
+              email
+              phone
+              name
+            }
+            ... on SanityOtherMembers {
+              newMember
+            }
+          }
+          newBusiness
+          oldBusiness
+          teleconference
+          tags
         }
       }
     }
@@ -47,14 +44,35 @@ export default function MinutesItemGrid() {
   const allMinutes = minutes.nodes;
   return (
     <CardStyles>
-      <ItemStyles>
-        {allMinutes.map((minute) => (
+      {allMinutes.map((minute) => (
+        <ItemStyles>
           <div className="card" key={minute.id}>
-            <div className="title">{minute.name}</div>
-            <div className="content">{minute.meetingStart}</div>
+            <div className="title">Called to order by: </div>
+            <div className="content">
+              Meeting began at: {minute.meetingStart}
+            </div>
+            <br />
+            <div className="content">
+              There were {minute.contributors} members that contributed proxy
+              information.
+            </div>
+            <br />
+            <div className="content">
+              <strong>Old Business:</strong>
+              <br /> {minute.oldBusiness}
+            </div>
+            <br />
+            <div className="content">
+              <strong>New Business:</strong> <br />
+              {minute.newBusiness}
+            </div>
+            <br />
+            <div className="content">Meeting ended at: {minute.endTime}</div>
+            <br />
+            <div className="content">Tags: {minute.tags}</div>
           </div>
-        ))}
-      </ItemStyles>
+        </ItemStyles>
+      ))}
     </CardStyles>
   );
 }
