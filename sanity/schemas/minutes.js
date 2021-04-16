@@ -9,20 +9,7 @@ export default {
     {
       name: 'name',
       title: 'Name of Person that Called the Meeting to Order',
-      type: 'array',
-      of: [
-        {
-          name: 'boardMembers',
-          title: 'Board member calling to order',
-          type: 'reference',
-          to: [{ type: 'boardMembers' }],
-        },
-        {
-          name: 'OtherMembers',
-          title: 'Other member calling to order',
-          type: 'OtherMembers',
-        },
-      ],
+      type: 'string',
     },
     {
       name: 'meetingStart',
@@ -31,6 +18,7 @@ export default {
       options: {
         timeFormat: 'h:mmA',
         dateFormat: 'dddd, MMMM Do YYYY',
+        timeZone: 'America/Denver',
       },
     },
     {
@@ -71,14 +59,26 @@ export default {
       type: 'number',
     },
     {
+      name: 'insertReport',
+      title: 'Treasurers Report',
+      type: 'reference',
+      to: [
+        {
+          type: 'treasurersReport',
+        },
+      ],
+    },
+    {
       name: 'oldBusiness',
       title: 'Old Business Notes',
-      type: 'text',
+      type: 'array',
+      of: [{ type: 'text' }],
     },
     {
       name: 'newBusiness',
       title: 'New Business Notes',
-      type: 'text',
+      type: 'array',
+      of: [{ type: 'text' }],
     },
     {
       name: 'tags',
@@ -89,7 +89,7 @@ export default {
           type: 'string',
         },
       ],
-      description: `Keywords for search field. Enter tags with comma & space between words.`,
+      description: `Enter tags with comma & space between keyword phrases.`,
       options: {
         layout: 'tags',
       },

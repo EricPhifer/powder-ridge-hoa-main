@@ -8,9 +8,9 @@ export default function MinutesItemGrid() {
       minutes: allSanityMinutes {
         nodes {
           contributors
-          endTime(formatString: "h:mm z")
+          meetingStart(formatString: "h:mma [on] MM/DD/YYYY")
+          endTime(formatString: "h:mma [on] MM/DD/YYYY")
           id
-          meetingStart(formatString: "h:mm z")
           members {
             ... on SanityBoardMembers {
               id
@@ -22,17 +22,7 @@ export default function MinutesItemGrid() {
               newMember
             }
           }
-          name {
-            ... on SanityBoardMembers {
-              id
-              email
-              phone
-              name
-            }
-            ... on SanityOtherMembers {
-              newMember
-            }
-          }
+          name
           newBusiness
           oldBusiness
           teleconference
@@ -47,7 +37,7 @@ export default function MinutesItemGrid() {
       {allMinutes.map((minute) => (
         <ItemStyles>
           <div className="card" key={minute.id}>
-            <div className="title">Called to order by: </div>
+            <div className="title">Called to order by: {minute.name}</div>
             <div className="content">
               Meeting began at: {minute.meetingStart}
             </div>
@@ -55,6 +45,10 @@ export default function MinutesItemGrid() {
             <div className="content">
               There were {minute.contributors} members that contributed proxy
               information.
+            </div>
+            <br />
+            <div className="content">
+              Those present are: **List of Members**
             </div>
             <br />
             <div className="content">

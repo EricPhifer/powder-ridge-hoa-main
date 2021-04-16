@@ -8,9 +8,10 @@ import faqs from './faqs';
 import ccrs from './ccrs';
 import acc from './acc';
 import minutes from './minutes';
+import treasurersReport from './treasurersReport';
 import boardMembers from './boardMembers';
-import MotionMade from '../components/MotionMade';
 import OtherMembers from '../components/OtherMembers';
+import Expenses from '../components/Expenses';
 import AccMembers from '../components/AccMembers';
 
 export default createSchema({
@@ -24,8 +25,9 @@ export default createSchema({
     faqs,
     ccrs,
     minutes,
-    MotionMade,
+    treasurersReport,
     OtherMembers,
+    Expenses,
     AccMembers,
   ]),
 });
