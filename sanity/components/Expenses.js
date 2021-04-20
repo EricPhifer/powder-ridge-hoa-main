@@ -23,25 +23,8 @@ export default {
     },
     {
       name: 'timeframe',
-      title: 'How often does the expense occur? Choose one.',
-      type: 'array',
-      of: [
-        {
-          name: 'yearly',
-          title: 'Yearly',
-          type: 'boolean',
-        },
-        {
-          name: 'monthly',
-          title: 'Monthly',
-          type: 'boolean',
-        },
-        {
-          name: 'oneTime',
-          title: 'One Time',
-          type: 'boolean',
-        },
-      ],
+      title: 'How often will the expense occur? Yearly, monthly, etc.',
+      type: 'string',
     },
   ],
 };

@@ -84,11 +84,7 @@ export default {
       name: 'tags',
       title: 'Tags',
       type: 'array',
-      of: [
-        {
-          type: 'string',
-        },
-      ],
+      of: [{ type: 'string' }],
       description: `Enter tags with comma & space between keyword phrases.`,
       options: {
         layout: 'tags',

@@ -2,7 +2,7 @@
   "name": "powder-ridge-hoa-backend",
   "private": true,
   "version": "1.0.0",
-  "description": "",
+  "description": "Content Management for Powder Ridge HOA",
   "main": "package.json",
   "author": "Eric Phifer <eric@ericphiferllc.com>",
   "license": "UNLICENSED",
