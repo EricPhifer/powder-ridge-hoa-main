@@ -47,4 +47,10 @@ export const ItemStyles = styled.div`
     text-decoration: underline;
     color: orange;
   }
+  .newBiz {
+    padding-bottom: 0.7rem;
+  }
+  .oldBiz {
+    padding-bottom: 0.7rem;
+  }
 `;

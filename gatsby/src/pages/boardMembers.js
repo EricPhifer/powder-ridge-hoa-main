@@ -64,6 +64,7 @@ export const AccStyles = styled.div`
 /* eslint-disable */
 export default function BoardMembers({ data }) {
   const members = data.members.nodes;
+  const committee = data.committee.nodes;
   return (
     <>
       <h2>Board Members</h2>
@@ -95,8 +96,23 @@ export default function BoardMembers({ data }) {
           ))}
       </MemberStyles>
       <AccStyles>
-        <h4>Architectural Control Committee</h4>
-        <img src="../assets/images/pexels-jopwell-1325766.jpg" alt="ACC Convening"/>
+        {committee.map((acc) => (
+          <div className="accContainer" key={acc._id}>
+            <h4>Architectural Control Committee</h4>
+            <div className="accImage">
+              <SanityImage
+              {...acc.image}
+              alt={acc.name}
+              width={540}
+              height={820}
+              />
+            </div>
+            <div>Chairman of the ACC: {acc.name}</div>
+            <div>What does the ACC do? {acc.description}</div>
+            <div>Who are the members of the ACC? {' '} {acc.members.map((member) => member.memberName).join(', ')}</div>
+            <div>How do I contact the ACC? {acc.phone}<br /> {acc.email}</div>
+          </div>
+        ))}
       </AccStyles>
     </>
   );
@@ -120,5 +136,23 @@ export const query = graphql`
         }
       }
     }
+    committee: allSanityAcc {
+    nodes {
+      id
+      email
+      description
+      name
+      phone
+      image {
+        asset {
+          _id 
+        }
+        ...ImageWithPreview
+      }
+      members {
+        memberName
+      }
+    }
+  }
   }
 `;

@@ -84,10 +84,10 @@ export default function MinutesItemGrid() {
     }
   `);
   const allMinutes = minutes.nodes;
-  console.log(allMinutes);
+
   return (
     <CardStyles>
-      {allMinutes.map((minute, index) => (
+      {allMinutes.map((minute) => (
         <ItemStyles>
           <div className="card" key={minute.id}>
             <div className="title">Called to order by: {minute.name}</div>
@@ -100,8 +100,9 @@ export default function MinutesItemGrid() {
               information.
             </div>
             <br />
-            <div className="content">
-              Those present were: {minute.members[index].newMember}
+            <div>
+              Those present were:{' '}
+              {minute.members.map((member) => member.newMember).join(', ')}
             </div>
             <br />
             <TreasurerStyles>
@@ -116,7 +117,8 @@ export default function MinutesItemGrid() {
                   </li>
                   <li className="full">
                     <div>
-                      <strong>Date:</strong> {minute.insertReport.dateGenerated}
+                      <strong>Date of Report:</strong>{' '}
+                      {minute.insertReport.dateGenerated}
                     </div>
                   </li>
                   <li className="quarter">
@@ -133,20 +135,14 @@ export default function MinutesItemGrid() {
                       <strong>Timeframe</strong>
                     </div>
                   </li>
-                  <li className="quarter">
-                    <div>
-                      {minute.insertReport.expenses[index].dayOfExpense}
-                    </div>
-                    <div>
-                      {minute.insertReport.expenses[index].nameOfExpense}
-                    </div>
-                    <div>
-                      {formatMoney(
-                        minute.insertReport.expenses[index].amountOfExpense
-                      )}
-                    </div>
-                    <div>{minute.insertReport.expenses[index].timeframe}</div>
-                  </li>
+                  {minute.insertReport.expenses.map((expense) => (
+                    <li key={expense.id} className="quarter">
+                      <div>{expense.dayOfExpense}</div>
+                      <div>{expense.nameOfExpense}</div>
+                      <div>{formatMoney(expense.amountOfExpense)}</div>
+                      <div>{expense.timeframe}</div>
+                    </li>
+                  ))}
                   <li className="full">
                     <div>
                       <strong>Total Balance:</strong>{' '}
@@ -159,7 +155,11 @@ export default function MinutesItemGrid() {
                     </div>
                   </li>
                   <li className="full">
-                    <div>Budget was approved as shown.</div>
+                    <div>
+                      Budget{' '}
+                      {!minute.insertReport.approvedBudget ? 'was not' : 'was'}{' '}
+                      approved as shown.
+                    </div>
                   </li>
                 </ul>
               </section>
@@ -167,12 +167,21 @@ export default function MinutesItemGrid() {
             <br />
             <div className="content">
               <strong>Old Business:</strong>
-              <br /> {minute.oldBusiness}
+              <br />{' '}
+              {minute.oldBusiness.map((oldBiz) => (
+                <div key={oldBiz.id} className="oldBiz">
+                  {oldBiz}
+                </div>
+              ))}
             </div>
             <br />
             <div className="content">
               <strong>New Business:</strong> <br />
-              {minute.newBusiness}
+              {minute.newBusiness.map((newBiz) => (
+                <div key={newBiz.id} className="newBiz">
+                  {newBiz}
+                </div>
+              ))}
             </div>
             <br />
             <div className="content">Meeting ended at: {minute.endTime}</div>
