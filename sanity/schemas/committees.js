@@ -1,17 +1,21 @@
-import { BiBuildingHouse as icon } from 'react-icons/bi';
+import { HiUserGroup as icon } from 'react-icons/hi';
 // import PhoneNumberDiff from '../components/PhoneNumberDiff';
 
 export default {
-  name: 'acc',
-  title: 'Architectural Control Committee',
+  name: 'committees',
+  title: 'Committees',
   type: 'document',
   icon,
   fields: [
     {
       name: 'name',
-      title: 'Chairman Name',
+      title: 'Name of Committee',
       type: 'string',
-      description: 'Name of the Chairman',
+    },
+    {
+      name: 'chairman',
+      title: 'Name of Chairman',
+      type: 'string',
     },
     {
       name: 'slug',
@@ -31,35 +35,35 @@ export default {
       },
     },
     {
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-      description: 'Tell us a bit about the committee & what they do.',
-    },
-    {
       name: 'members',
-      title: 'Members of ACC',
+      title: 'Members',
+      description: 'Names of Members',
       type: 'array',
       of: [
         {
-          name: 'AccMembers',
-          title: 'Members of ACC',
-          type: 'AccMembers',
+          name: 'members',
+          type: 'string',
         },
       ],
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      description: 'Tell us a bit about this committee.',
     },
     {
       name: 'email',
       title: 'Email',
       type: 'email',
-      description: 'Email Address to Contact ACC',
+      description: 'Email Address for Committee Contact',
     },
     {
       name: 'phone',
       title: 'Phone Number',
       type: 'string',
       //   inputComponent: PhoneNumberDiff,
-      description: 'Phone Number for ACC',
+      description: 'Phone Number for Committee Contact',
     },
   ],
   preview: {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { DateTime } from 'luxon';
 import styled from 'styled-components';
 import { CardStyles, ItemStyles } from '../styles/PageCardStyles';
 import formatMoney from '../../utils/formatMoney';
@@ -84,6 +85,9 @@ export default function MinutesItemGrid() {
     }
   `);
   const allMinutes = minutes.nodes;
+  const endTime = DateTime.fromISO(allMinutes.endTime, {
+    zone: 'utc-6',
+  }).toString();
 
   return (
     <CardStyles>
@@ -184,7 +188,7 @@ export default function MinutesItemGrid() {
               ))}
             </div>
             <br />
-            <div className="content">Meeting ended at: {minute.endTime}</div>
+            <div className="content">Meeting ended at: {endTime}</div>
             <br />
             <div className="content">Tags: {minute.tags}</div>
           </div>

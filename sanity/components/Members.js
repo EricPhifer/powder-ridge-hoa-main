@@ -1,6 +1,6 @@
 export default {
-  name: 'AccMembers',
-  title: 'Members of ACC',
+  name: 'Members',
+  title: 'Members',
   type: 'object',
   fields: [
     {
