@@ -8,6 +8,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import faqs from './faqs';
 import ccrs from './ccrs';
 import committees from './committees';
+import termsConditions from './termsConditions';
+import privacyPolicy from './privacyPolicy';
 import minutes from './minutes';
 import treasurersReport from './treasurersReport';
 import boardMembers from './boardMembers';
@@ -24,6 +26,8 @@ export default createSchema({
     faqs,
     ccrs,
     committees,
+    termsConditions,
+    privacyPolicy,
     minutes,
     treasurersReport,
     OtherMembers,

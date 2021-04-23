@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -30,6 +31,11 @@ export default function Footer() {
             <a href="https://ericphifer.com" target="_blank" rel="noreferrer">
               Designed &amp; Developed by Eric Phifer LLC
             </a>
+          </li>
+          <li>
+            <div />
+            <Link to="/privacyPolicy">Privacy Policy</Link> |{' '}
+            <Link to="/termsConditions">Terms &amp; Condtions</Link>
           </li>
         </ul>
       </FooterStyles>
