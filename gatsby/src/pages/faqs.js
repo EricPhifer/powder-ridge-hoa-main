@@ -6,7 +6,7 @@ import { PageCardStyles } from '../styles/PageCardStyles';
 export default function Faqs() {
   return (
     <>
-      <h2>Frequently Asked Questions</h2>
+      <h1>Frequently Asked Questions</h1>
       <Search />
       <PageCardStyles>
         <FaqItemGrid />

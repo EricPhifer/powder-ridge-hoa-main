@@ -7,7 +7,7 @@ import MinutesItemGrid from '../components/MinutesItemGrid';
 export default function Minutes() {
   return (
     <>
-      <h2>Board Minutes</h2>
+      <h1>Board Minutes</h1>
       <Search />
       <PageCardStyles>
         <MinutesItemGrid />

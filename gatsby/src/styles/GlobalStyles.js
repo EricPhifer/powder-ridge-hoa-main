@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     --grey: #efefef;
   }
   html {
-    background-image: linear-gradient(to bottom, darkcyan, cyan, lightcyan, white, lightcyan, cyan, darkcyan);
+    background-image: linear-gradient(lightcyan, darkcyan, lightcyan);
     background-size: 100%;
     background-attachment: fixed;
     font-size: 10px;

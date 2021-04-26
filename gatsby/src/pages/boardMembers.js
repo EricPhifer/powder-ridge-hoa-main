@@ -125,7 +125,7 @@ export default function BoardMembers({ data }) {
   const committees = data.committees.nodes;
   return (
     <>
-      <h2>Board Members</h2>
+      <h1>Board Members</h1>
       <MemberStyles>
           {members.map((member) => (
             <div className="container" key={member._id}>

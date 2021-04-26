@@ -6,7 +6,7 @@ import { PageCardStyles } from '../styles/PageCardStyles';
 export default function Ccrs() {
   return (
     <>
-      <h2>Covenants, Conditions &amp; Restrictions</h2>
+      <h1>Covenants, Conditions &amp; Restrictions</h1>
       <Search />
       <PageCardStyles>
         <CcrsItemGrid />
