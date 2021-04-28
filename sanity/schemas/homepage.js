@@ -25,8 +25,9 @@ export default {
       type: 'array',
       of: [
         {
-          name: 'content',
-          type: 'text',
+          name: 'HomeContent',
+          title: 'Title & Content to Display',
+          type: 'HomeContent',
         },
       ],
     },

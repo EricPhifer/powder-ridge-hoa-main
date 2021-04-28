@@ -11,13 +11,15 @@ export const CardStyles = styled.div`
 `;
 export const ItemStyles = styled.div`
   position: relative;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   h4 {
     text-align: center;
   }
   .card {
-    width: 90%;
-    margin: 2rem;
     padding: 2rem;
+    margin: 1rem;
     border: 1px black solid;
     box-shadow: 5px 5px 10px black;
   }

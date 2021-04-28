@@ -16,6 +16,7 @@ import treasurersReport from './treasurersReport';
 import boardMembers from './boardMembers';
 import OtherMembers from '../components/OtherMembers';
 import Expenses from '../components/Expenses';
+import HomeContent from '../components/HomeContent';
 
 export default createSchema({
   // We name our schema
@@ -34,5 +35,6 @@ export default createSchema({
     treasurersReport,
     OtherMembers,
     Expenses,
+    HomeContent,
   ]),
 });

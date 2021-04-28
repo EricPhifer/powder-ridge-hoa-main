@@ -34,8 +34,8 @@ export default function Footer() {
           </li>
           <li>
             <div />
-            <Link to="/privacyPolicy">Privacy Policy</Link> |{' '}
-            <Link to="/termsConditions">Terms &amp; Condtions</Link>
+            <Link to="/privacypolicy">Privacy Policy</Link> |{' '}
+            <Link to="/termsconditions">Terms &amp; Condtions</Link>
           </li>
         </ul>
       </FooterStyles>

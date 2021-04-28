@@ -8,7 +8,6 @@ import formatMoney from '../../utils/formatMoney';
 const TreasurerStyles = styled.div`
   padding: 1rem;
   margin: 0;
-  border: 1px solid black;
   display: grid;
   grid-template-columns: 4fr;
   justify-content: center;

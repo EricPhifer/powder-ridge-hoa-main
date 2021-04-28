@@ -7,18 +7,12 @@ import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/Typography';
 
 const SiteBorderStyles = styled.div`
-  max-width: 85vw;
+  max-width: 95vw;
   margin: 6rem auto 2rem auto;
-  margin-top: clamp(2rem, 10vw, 12rem);
-  background: linear-gradient(
-    lightcyan,
-    lightgrey,
-    lightcyan,
-    lightgrey,
-    lightcyan
-  );
+  margin-top: clamp(2rem, 10vw, 2rem);
+  background: linear-gradient(grey, lightgrey, grey, lightgrey, grey);
   padding: 5px;
-  padding: clamp(2px, 1vw, 18px);
+  padding: clamp(2px, 1vw, 8px);
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.044);
   @media (max-width: 1100px) {
     margin-left: 1.5rem;

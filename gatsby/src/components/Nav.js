@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import bg from '../assets/images/bg.jpg';
+import bg from '../assets/images/bg.png';
 
 const NavStyles = styled.nav`
   margin-bottom: 3rem;
@@ -15,11 +15,14 @@ const NavStyles = styled.nav`
     grid-gap: 2rem;
     align-items: center;
     font-variant: small-caps;
-    li .logo {
-      width: 200px;
-      height: auto;
-      background-color: black;
-    }
+  }
+  .logo {
+    width: 9rem;
+    height: 7rem;
+    background-image: url(${bg});
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
   a {
     font-size: 2rem;
@@ -50,7 +53,9 @@ export default function Nav() {
     <NavStyles>
       <ul>
         <li>
-          <Link to="/" className="logo" />
+          <Link to="/">
+            <div className="logo" />
+          </Link>
         </li>
         <li>
           <Link to="/faqs">FAQs</Link>
@@ -59,7 +64,7 @@ export default function Nav() {
           <Link to="/ccrs">CCRs</Link>
         </li>
         <li>
-          <Link to="/boardMembers">Board Members</Link>
+          <Link to="/boardmembers">Board Members</Link>
         </li>
         <li>
           <Link to="/minutes">Board Minutes</Link>

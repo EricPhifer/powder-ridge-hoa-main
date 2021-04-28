@@ -6,21 +6,15 @@ import styled from 'styled-components';
 export const MemberStyles = styled.div`
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(3, 1fr);
-  .container {
-    margin-top: 3rem;
-    display: grid;
-    gap: 2rem;
-  }
-
-  .imageNamePosition {
+  grid-template-columns: 4fr 8fr;
+  margin-top: 2rem;
+  .image {
     justify-self: center;
     align-self: center;
   }
   .card {
-    display: grid;
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
+    justify-self: center;
+    align-self: center;
   }
   .position {
     padding-top: 0;
@@ -125,11 +119,10 @@ export default function BoardMembers({ data }) {
   const committees = data.committees.nodes;
   return (
     <>
-      <h1>Board Members</h1>
-      <MemberStyles>
+      <h1>Board Members</h1>      
           {members.map((member) => (
-            <div className="container" key={member._id}>
-              <div className="imageNamePosition">
+            <MemberStyles key={member._id}>
+              <div className="image">
                 <SanityImage
                   {...member.image}
                   alt={member.name}
@@ -142,8 +135,8 @@ export default function BoardMembers({ data }) {
                   }}
                   />
                </div> 
-               <div className="card">
-                 <div className="memberName">{member.name}</div>
+              <div className="card">
+                <div className="memberName">{member.name}</div>
                 <div className="position">{member.position}</div>
                 <div className="description">{member.description}</div>
                 <ul>
@@ -155,9 +148,8 @@ export default function BoardMembers({ data }) {
                   </li>
                 </ul>
               </div>  
-            </div>
+            </MemberStyles>
           ))}
-      </MemberStyles>
       <CommitteesStyles>
         {committees.map((committee) => (
           <CommitteeStyles>
