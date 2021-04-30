@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
-export const PolicyStyles = styled.div`
+const PolicyStyles = styled.div`
   .updateDate {
     text-align: center;
   }

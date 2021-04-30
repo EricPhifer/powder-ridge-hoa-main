@@ -3,9 +3,10 @@ import SanityImage from 'gatsby-plugin-sanity-image';
 import React from 'react';
 import styled from 'styled-components';
 
-export const HomeStyles = styled.div`
+const HomeStyles = styled.div`
   .heroBG {
     margin: 0;
+    padding: 0;
     h1 {
       font-size: 7rem;
       color: white;
@@ -36,8 +37,36 @@ export const HomeStyles = styled.div`
       margin-top: 1rem;
     }
   }
+  @media (min-width: 300px) {
+    .heroBG h1 {
+      font-size: 4rem;
+      margin: 1rem;
+      padding-right: 2.5rem;
+    }
+  }
+  @media (min-width: 500px) {
+    .heroBG h1 {
+      font-size: 4rem;
+      margin: 1rem;
+      padding-right: 2.5rem;
+    }
+  }
+  @media (min-width: 700px) {
+    .heroBG h1 {
+      font-size: 4rem;
+      margin: 1rem;
+      padding-right: 2.5rem;
+    }
+  }
+  @media (min-width: 900px) {
+    .heroBG h1 {
+      font-size: 4rem;
+      margin: 1rem;
+      padding-right: 2.5rem;
+    }
+  }
 `;
-/* eslint-disable */
+
 export default function HomePage({ data }) {
   const homepage = data.homepage.nodes;
   return (
@@ -45,11 +74,11 @@ export default function HomePage({ data }) {
       {homepage.map((home) => (
         <HomeStyles key={home.id}>
           <div className="heroBG">
-          <h1>{home.welcome}</h1>
+            <h1>{home.welcome}</h1>
             <SanityImage
               {...home.image}
               alt="Powder Ridge Homes"
-              height={1000}
+              height={500}
               style={{
                 width: '100%',
                 height: '50%',
@@ -62,12 +91,12 @@ export default function HomePage({ data }) {
             <div className="homeContent">
               <h3>{info.heading}</h3>
               <div>{info.content}</div>
-              <button>
+              <button type="button">
                 <Link to={info.contentURL}>Check it out here.</Link>
               </button>
             </div>
           ))}
-          </HomeStyles>
+        </HomeStyles>
       ))}
     </>
   );

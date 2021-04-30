@@ -46,6 +46,19 @@ const NavStyles = styled.nav`
       color: var(--red);
     }
   }
+
+  @media (max-width: 900px) {
+    .logo {
+      width: 7rem;
+      height: 5rem;
+    }
+    ul {
+      gap: 0.5rem;
+    }
+    a {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 export default function Nav() {

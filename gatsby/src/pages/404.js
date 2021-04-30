@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
-export const FourOhFourStyles = styled.div`
+const FourOhFourStyles = styled.div`
   * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;

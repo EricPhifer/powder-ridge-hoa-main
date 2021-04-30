@@ -16,6 +16,7 @@ export default function CcrsItemGrid() {
           ccr
           ccrContent
           refId
+          id
         }
       }
     }
@@ -23,7 +24,7 @@ export default function CcrsItemGrid() {
 
   const allCcrs = ccrs.nodes;
   const order = countOrder(allCcrs);
-  console.log(order);
+
   return (
     <CardStyles>
       <ItemStyles>

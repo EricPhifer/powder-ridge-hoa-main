@@ -7,7 +7,6 @@ import formatMoney from '../../utils/formatMoney';
 
 const TreasurerStyles = styled.div`
   padding: 1rem;
-  margin: 0;
   display: grid;
   grid-template-columns: 4fr;
   justify-content: center;
@@ -17,6 +16,7 @@ const TreasurerStyles = styled.div`
   }
   ul {
     list-style-type: none;
+    padding-left: 0;
   }
   .full {
     display: grid;
@@ -34,6 +34,11 @@ const TreasurerStyles = styled.div`
       padding: 0.7rem;
       border: 2px solid black;
     }
+  }
+  @media (max-width: 900px) {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
   }
 `;
 

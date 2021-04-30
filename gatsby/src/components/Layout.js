@@ -22,7 +22,8 @@ const SiteBorderStyles = styled.div`
 
 const ContentStyles = styled.div`
   background: white;
-  padding: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   h2 {
     text-decoration: underline;
   }

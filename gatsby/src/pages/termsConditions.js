@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
-export const TermStyles = styled.div`
+const TermStyles = styled.div`
   .updateDate {
     text-align: center;
   }
