@@ -62,8 +62,21 @@ const MemberStyles = styled.div`
     font-weight: bold;
     font-size: 2.2rem;
   }
-  @media (min-width: 300px) and (max-width: 769) {
-    --columns: 1;
+  @media (max-width: 900px) {
+    --columns: 2;
+    .image {
+      grid-column: 1 / span 2;
+    }
+    .card {
+      grid-column: 1 / span 2;
+    }
+  }
+  @media (max-width: 400px) {
+    font-size: 1.5rem;
+    button {
+      margin-left: 0;
+      padding: 2px;
+    }
   }
 `;
 
@@ -97,6 +110,21 @@ const CommitteeStyles = styled.div`
       border: 0.2rem solid magenta;
     }
   }
+  @media (max-width: 400px) {
+    margin: 0;
+    h2 {
+      font-size: 1.75rem;
+    }
+    button {
+      font-size: 1.5rem;
+    }
+    div {
+      font-size: 1.75rem;
+    }
+    div strong {
+      font-size: 1.75rem;
+    }
+  }
 `;
 
 const CommitteesStyles = styled.div``;
@@ -106,14 +134,27 @@ const FormStyles = styled.div`
   fieldset {
     padding: 3.5rem;
   }
-  .nameAndEmail {
+  .formContainer {
+    --columns: 12;
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr 5fr;
+    grid-template-columns: repeat(var(--columns), minmax(auto, 1fr));
     gap: 1rem;
     input {
       border: 1px solid grey;
       padding-left: 5px;
     }
+    label {
+      grid-column: 1 / span 1;
+    }
+  }
+  #name {
+    grid-column: 2 / span 7;
+  }
+  #email {
+    grid-column: 2 / span 7;
+  }
+  textarea {
+    grid-column: 1 / span 12;
   }
   .hide {
     display: none;
@@ -122,14 +163,6 @@ const FormStyles = styled.div`
     padding-top: 1.2rem;
     padding-bottom: 1.2rem;
     color: #7c7c7c;
-  }
-  .messageContainer {
-    display: grid;
-    grid-template-columns: 2fr;
-    margin-top: 2rem;
-    textarea {
-      padding-left: 1rem;
-    }
   }
   .submitButton {
     margin-top: 1.5rem;
@@ -140,6 +173,13 @@ const FormStyles = styled.div`
   }
   .mapleSyrup {
     display: none;
+  }
+  @media (max-width: 400px) {
+    --columns: 6;
+    fieldset {
+      margin: 0;
+      padding: 5px;
+    }
   }
 `;
 
@@ -267,7 +307,7 @@ export default function BoardMembers({ data, pageContext }) {
         <form className="container" id="formContainer">
           <fieldset>
             <legend>Contact Us</legend>
-            <div className="nameAndEmail">
+            <div className="formContainer">
               <label htmlFor="name">Name</label>
               <input
                 type="text"
@@ -294,9 +334,7 @@ export default function BoardMembers({ data, pageContext }) {
                 onChange={updateValue}
                 className="mapleSyrup"
               />
-            </div>
-            <WhoToEmail personToEmail={pageContext.name} />
-            <div className="messageContainer">
+              <WhoToEmail personToEmail={pageContext.name} />
               <textarea
                 name="message"
                 id="message"

@@ -4,6 +4,9 @@ export const PageCardStyles = styled.div`
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr;
+  @media (max-width: 400px) {
+    display: block;
+  }
 `;
 export const CardStyles = styled.div`
   display: grid;
@@ -54,5 +57,8 @@ export const ItemStyles = styled.div`
   }
   .oldBiz {
     padding-bottom: 0.7rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 1.5rem;
   }
 `;

@@ -77,7 +77,11 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     display: inline-block;
   }
-
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 2rem;
+    }
+  }
 `;
 
 export default GlobalStyles;

@@ -13,6 +13,11 @@ export const SearchStyles = styled.div`
     border-radius: 2rem;
     width: 40vw;
   }
+  @media (max-width: 400px) {
+    input {
+      width: 95%;
+    }
+  }
 `;
 
 export default function Search() {

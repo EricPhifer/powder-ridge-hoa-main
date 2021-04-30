@@ -3,10 +3,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterStyles = styled.div`
+  --columns: 1;
   ul {
     display: grid;
-    grid-template-columns: repeat(100%, minmax(250px, 1fr));
+    grid-template-columns: repeat(var(--columns), minmax(auto, 1fr));
     align-items: center;
+    justify-content: center;
     text-align: center;
     align-content: center;
     font-size: 1.4rem;
@@ -17,6 +19,13 @@ const FooterStyles = styled.div`
     color: gray;
     &:hover {
       color: tomato;
+    }
+  }
+  @media (max-width: 400px) {
+    ul {
+      font-size: 1rem;
+      margin: 0;
+      margin-left: -3rem;
     }
   }
 `;

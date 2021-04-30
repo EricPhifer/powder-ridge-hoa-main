@@ -36,33 +36,27 @@ const HomeStyles = styled.div`
       margin-left: 4rem;
       margin-top: 1rem;
     }
-  }
-  @media (min-width: 300px) {
-    .heroBG h1 {
-      font-size: 4rem;
-      margin: 1rem;
-      padding-right: 2.5rem;
+    a {
+      text-decoration: none;
     }
   }
-  @media (min-width: 500px) {
-    .heroBG h1 {
-      font-size: 4rem;
-      margin: 1rem;
-      padding-right: 2.5rem;
+  @media (max-width: 400px) {
+    .heroBG {
+      h1 {
+        font-size: 3rem;
+        margin: 1rem;
+        padding-right: 2.5rem;
+      }
+    }
+    .homeContent {
+      font-size: 1.5rem;
     }
   }
-  @media (min-width: 700px) {
-    .heroBG h1 {
-      font-size: 4rem;
-      margin: 1rem;
-      padding-right: 2.5rem;
-    }
-  }
-  @media (min-width: 900px) {
-    .heroBG h1 {
-      font-size: 4rem;
-      margin: 1rem;
-      padding-right: 2.5rem;
+  @media (max-width: 900px) {
+    .heroBG {
+      h1 {
+        font-size: 4rem;
+      }
     }
   }
 `;
@@ -92,7 +86,7 @@ export default function HomePage({ data }) {
               <h3>{info.heading}</h3>
               <div>{info.content}</div>
               <button type="button">
-                <Link to={info.contentURL}>Check it out here.</Link>
+                <Link to={info.contentURL}>Check it out here</Link>
               </button>
             </div>
           ))}

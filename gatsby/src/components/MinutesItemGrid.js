@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { DateTime } from 'luxon';
 import styled from 'styled-components';
-import { CardStyles, ItemStyles } from '../styles/PageCardStyles';
+import { ItemStyles } from '../styles/PageCardStyles';
 import formatMoney from '../../utils/formatMoney';
 
 const TreasurerStyles = styled.div`
@@ -36,6 +36,11 @@ const TreasurerStyles = styled.div`
     }
   }
   @media (max-width: 900px) {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  @media (max-width: 400px) {
     width: 100%;
     margin-left: 0;
     padding-left: 0;
@@ -91,7 +96,7 @@ export default function MinutesItemGrid() {
   const allMinutes = minutes.nodes;
 
   return (
-    <CardStyles>
+    <div>
       {allMinutes.map((minute) => {
         const endMDT = DateTime.fromISO(minute.endTime, {
           zone: 'utc-6',
@@ -203,6 +208,6 @@ export default function MinutesItemGrid() {
           </ItemStyles>
         );
       })}
-    </CardStyles>
+    </div>
   );
 }

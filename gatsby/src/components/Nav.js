@@ -12,7 +12,7 @@ const NavStyles = styled.nav`
     list-style: none;
     display: grid;
     grid-template-columns: auto 1fr 1fr 1fr 1fr;
-    grid-gap: 2rem;
+    gap: 2rem;
     align-items: center;
     font-variant: small-caps;
   }
@@ -56,7 +56,19 @@ const NavStyles = styled.nav`
       gap: 0.5rem;
     }
     a {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
+    }
+  }
+  @media (max-width: 400px) {
+    .logo {
+      width: 7rem;
+      height: 5rem;
+    }
+    ul {
+      gap: 0;
+    }
+    a {
+      font-size: 1.05rem;
     }
   }
 `;
