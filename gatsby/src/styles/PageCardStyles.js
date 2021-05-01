@@ -11,6 +11,8 @@ export const PageCardStyles = styled.div`
 export const CardStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  padding-left: 2rem;
+  padding-right: 2rem;
 `;
 export const ItemStyles = styled.div`
   position: relative;

@@ -1,10 +1,18 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import SEO from '../components/SEO';
 
 const TermStyles = styled.div`
+  word-wrap: break-word;
+  padding-left: 5rem;
+  padding-right: 5rem;
   .updateDate {
     text-align: center;
+  }
+  @media (max-width: 600px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 `;
 
@@ -17,9 +25,9 @@ function countOrder(terms) {
 export default function TermsConditions({ data }) {
   const terms = data.terms.nodes;
   const order = countOrder(terms);
-  console.log(order);
   return (
     <>
+      <SEO title="Terms &amp; Conditions" />
       <TermStyles>
         <h1>Terms and Conditions</h1>
         <p className="updateDate">Last updated: April 30, 2021</p>

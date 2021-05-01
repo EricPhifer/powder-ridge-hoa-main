@@ -2,19 +2,17 @@ import { graphql, Link } from 'gatsby';
 import SanityImage from 'gatsby-plugin-sanity-image';
 import React from 'react';
 import styled from 'styled-components';
+import SEO from '../components/SEO';
 
 const HomeStyles = styled.div`
   .heroBG {
     margin: 0;
     padding: 0;
     h1 {
-      font-size: 7rem;
-      color: white;
-      text-shadow: 1px 1px 5px black;
+      font-size: 4rem;
+      text-shadow: 1px 1px 15px whitesmoke;
       font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS',
         sans-serif;
-      position: absolute;
-      margin: 10%;
     }
   }
   .homeContent {
@@ -65,6 +63,7 @@ export default function HomePage({ data }) {
   const homepage = data.homepage.nodes;
   return (
     <>
+      <SEO title="Home Page" />
       {homepage.map((home) => (
         <HomeStyles key={home.id}>
           <div className="heroBG">

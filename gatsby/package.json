@@ -8,6 +8,7 @@
     "babel-plugin-styled-components": "^1.11.1",
     "dotenv": "^8.2.0",
     "downshift": "^6.1.0",
+    "fuse.js": "^6.4.6",
     "gatsby": "^2.32.11",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sanity-image": "^0.6.0",

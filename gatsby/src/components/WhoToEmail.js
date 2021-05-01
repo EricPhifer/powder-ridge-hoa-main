@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 export default function WhoToEmail({ personToEmail }) {
@@ -37,9 +37,7 @@ export default function WhoToEmail({ personToEmail }) {
 
   return (
     <div>
-      {!whichOne(id) ? (
-        ' '
-      ) : (
+      {!whichOne(id) ? null : (
         <div key={id}>Your email will be sent to {name}</div>
       )}
 

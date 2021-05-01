@@ -25,6 +25,7 @@ const FooterStyles = styled.div`
     ul {
       font-size: 1rem;
       margin: 0;
+      margin-top: 2rem;
       margin-left: -3rem;
     }
   }

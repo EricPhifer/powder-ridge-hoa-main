@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import useForm from '../../utils/useForm';
 import useContact from '../../utils/useContact';
 import WhoToEmail from '../components/WhoToEmail';
+import SEO from '../components/SEO';
 
 const MemberStyles = styled.div`
   --columns: 4;
@@ -12,10 +13,16 @@ const MemberStyles = styled.div`
   grid-template-columns: repeat(var(--columns), minmax(auto, 3fr));
   gap: 2rem;
   margin-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-shadow: 2px 2px 3px white;
   .image {
     justify-self: center;
     align-self: center;
     grid-column: 1 / span 1;
+  }
+  img {
+    border: 3rem grey groove;
   }
   .card {
     justify-self: center;
@@ -47,6 +54,10 @@ const MemberStyles = styled.div`
       margin-left: 2rem;
     }
   }
+  a {
+    text-decoration: none;
+    color: white;
+  }
   button {
     padding: 0.5rem 2rem;
     border: 0.2rem dashed tomato;
@@ -69,6 +80,12 @@ const MemberStyles = styled.div`
     }
     .card {
       grid-column: 1 / span 2;
+      padding-left: 1rem;
+    }
+    img {
+      max-width: 40%;
+      padding-left: 29%;
+      border: none;
     }
   }
   @media (max-width: 400px) {
@@ -96,6 +113,10 @@ const CommitteeStyles = styled.div`
   }
   .contact {
     text-align: center;
+    a {
+      text-decoration: none;
+      color: white;
+    }
     button {
       padding: 0.4rem 3rem;
       border: 0.2rem dashed tomato;
@@ -108,6 +129,7 @@ const CommitteeStyles = styled.div`
     }
     button:active {
       border: 0.2rem solid magenta;
+      color: magenta;
     }
   }
   @media (max-width: 400px) {
@@ -143,15 +165,27 @@ const FormStyles = styled.div`
       border: 1px solid grey;
       padding-left: 5px;
     }
-    label {
+    .nameLabel {
+      grid-column: 1 / span 1;
+    }
+    .emailLabel {
+      grid-column: 1 / span 1;
+    }
+    .subjectLabel {
+      grid-column: 1 / span 1;
+    }
+    .messageLabel {
       grid-column: 1 / span 1;
     }
   }
   #name {
-    grid-column: 2 / span 7;
+    grid-column: 2 / span 5;
   }
   #email {
-    grid-column: 2 / span 7;
+    grid-column: 2 / span 5;
+  }
+  #subject {
+    grid-column: 1 / span 6;
   }
   textarea {
     grid-column: 1 / span 12;
@@ -171,14 +205,30 @@ const FormStyles = styled.div`
       box-shadow: 5px 5px 10px black;
     }
   }
-  .mapleSyrup {
-    display: none;
-  }
   @media (max-width: 400px) {
     --columns: 6;
     fieldset {
       margin: 0;
       padding: 5px;
+    }
+  }
+  @media (max-width: 600px) {
+    .formContainer {
+      .nameLabel {
+        grid-column: 1 / span 1;
+      }
+      .emailLabel {
+        grid-column: 1 / span 1;
+      }
+    }
+    #name {
+      grid-column: 2 / span 5;
+    }
+    #email {
+      grid-column: 2 / span 5;
+    }
+    #subject {
+      grid-column: 1 / span 12;
     }
   }
 `;
@@ -189,7 +239,6 @@ export default function BoardMembers({ data, pageContext }) {
   const { values, updateValue } = useForm({
     name: '',
     email: '',
-    mapleSyrup: '',
   });
   const { contact, error, loading, errMessage, submitContact } = useContact({
     values,
@@ -200,6 +249,7 @@ export default function BoardMembers({ data, pageContext }) {
   }
   return (
     <>
+      <SEO title="Board Members" />
       <h1>Board Members</h1>
       {members.map((member) => (
         <MemberStyles key={member.id}>
@@ -207,11 +257,11 @@ export default function BoardMembers({ data, pageContext }) {
             <SanityImage
               {...member.image}
               alt={member.name}
-              height={800}
+              height={1000}
               style={{
                 width: '100%',
                 height: '100%',
-                objectFit: 'cover',
+                objectFit: 'contain',
                 auto: 'format',
               }}
             />
@@ -227,9 +277,8 @@ export default function BoardMembers({ data, pageContext }) {
                   name={member.position}
                   id={member.id}
                   className="memberbtn"
-                  onClick={() => console.log()}
                 >
-                  Email {member.name.split(' ', 1)}
+                  <a href="#formContainer">Email {member.name.split(' ', 1)}</a>
                 </button>
               </li>
               <li>
@@ -304,11 +353,22 @@ export default function BoardMembers({ data, pageContext }) {
         ))}
       </CommitteesStyles>
       <FormStyles>
-        <form className="container" id="formContainer">
+        <form
+          className="container"
+          id="formContainer"
+          method="post"
+          netlify-honeypot="bot-field"
+          data-netlify="true"
+          name="contact"
+        >
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="form-name" value="contact" />
           <fieldset>
             <legend>Contact Us</legend>
             <div className="formContainer">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name" className="nameLabel">
+                Name
+              </label>
               <input
                 type="text"
                 name="name"
@@ -317,7 +377,9 @@ export default function BoardMembers({ data, pageContext }) {
                 onChange={updateValue}
                 placeholder="Your Name"
               />
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email" className="emailLabel">
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -326,24 +388,30 @@ export default function BoardMembers({ data, pageContext }) {
                 onChange={updateValue}
                 placeholder="Your Email"
               />
+              <label htmlFor="subject" className="subjectLabel">
+                Subject
+              </label>
               <input
-                type="mapleSyrup"
-                name="mapleSyrup"
-                id="mapleSyrup"
-                value={values.mapleSyrup}
+                type="subject"
+                name="subject"
+                id="subject"
+                value={values.subject}
                 onChange={updateValue}
-                className="mapleSyrup"
+                placeholder="Reason for contacting?"
               />
-              <WhoToEmail personToEmail={pageContext.name} />
+              <label htmlFor="message" className="messageLabel">
+                Message
+              </label>
               <textarea
                 name="message"
                 id="message"
                 value={values.message}
                 onChange={updateValue}
                 rows="7"
-                placeholder="Message"
+                placeholder="What question or message do you have?"
               />
             </div>
+            <WhoToEmail personToEmail={pageContext.name} />
             <button type="submit" className="submitButton" value="Submit">
               Submit Message
             </button>
