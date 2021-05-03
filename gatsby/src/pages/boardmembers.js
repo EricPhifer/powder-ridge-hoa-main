@@ -289,7 +289,7 @@ export default function BoardMembers({ data, pageContext }) {
                   className="memberbtn"
                   onClick={() => console.log()}
                 >
-                  Call {member.name.split(' ', 1)}
+                  Call {member.name}
                 </button>
               </li>
             </ul>
