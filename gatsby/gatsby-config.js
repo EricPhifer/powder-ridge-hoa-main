@@ -17,8 +17,10 @@ export default {
       options: {
         projectId: '1oaoktsj',
         dataset: 'production',
+        apiVersion: '2021-04-30',
         watchMode: true,
         token: process.env.SANITY_TOKEN,
+        useCdn: false,
       },
     },
     {
