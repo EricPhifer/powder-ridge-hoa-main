@@ -211,6 +211,9 @@ const FormStyles = styled.div`
       margin: 0;
       padding: 5px;
     }
+    button {
+      margin-top: 1rem;
+    }
   }
   @media (max-width: 600px) {
     .formContainer {
