@@ -89,7 +89,7 @@ export default function Nav() {
           <Link to="/ccrs">CCRs</Link>
         </li>
         <li>
-          <Link to="/boardMembers">Board Members</Link>
+          <Link to="/boardmembers">Board Members</Link>
         </li>
         <li>
           <Link to="/minutes">Board Minutes</Link>
