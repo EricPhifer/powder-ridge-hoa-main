@@ -48,7 +48,7 @@ export default function TermsConditions({ data }) {
         ))}
         <div>
           <div>Powder Ridge Homeowners Association</div>
-          <div>851 Grand Ave.</div>
+          <div>P.O. Box 4574</div>
           <div>Grand Junction, CO 81501 United States</div>
           <div>
             <a href="970-261-0818">Contact Us by phone.</a>

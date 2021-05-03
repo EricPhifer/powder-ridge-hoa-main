@@ -278,7 +278,7 @@ export default function BoardMembers({ data, pageContext }) {
                   id={member.id}
                   className="memberbtn"
                 >
-                  <a href="#formContainer">Email {member.name.split(' ', 1)}</a>
+                  <a href="#formContainer">Email {member.name}</a>
                 </button>
               </li>
               <li>
