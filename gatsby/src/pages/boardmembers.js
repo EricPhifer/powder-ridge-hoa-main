@@ -49,6 +49,7 @@ const MemberStyles = styled.div`
       width: 100%;
       display: inline;
       text-align: center;
+      margin: 0.5rem;
     }
   }
   a {
@@ -203,7 +204,6 @@ const FormStyles = styled.div`
     }
   }
   @media (max-width: 400px) {
-    --columns: 6;
     fieldset {
       margin: 0;
       padding: 5px;

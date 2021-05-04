@@ -66,6 +66,7 @@ const NavStyles = styled.nav`
     }
     ul {
       gap: 0;
+      line-height: 0.7;
     }
     a {
       font-size: 1.05rem;
