@@ -44,6 +44,12 @@ const TreasurerStyles = styled.div`
     width: 100%;
     margin-left: 0;
     padding-left: 0;
+    .quarter {
+      div {
+        padding: 0;
+        border: 0.5 solid black;
+      }
+    }
   }
 `;
 
