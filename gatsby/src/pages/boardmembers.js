@@ -46,12 +46,9 @@ const MemberStyles = styled.div`
   ul {
     list-style-type: none;
     li {
-      width: 40%;
+      width: 100%;
       display: inline;
       text-align: center;
-    }
-    li:last-child {
-      margin-left: 2rem;
     }
   }
   a {
