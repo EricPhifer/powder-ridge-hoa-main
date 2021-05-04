@@ -200,6 +200,7 @@ const FormStyles = styled.div`
   }
   .submitButton {
     margin-top: 1.5rem;
+    text-align: right;
     &:hover {
       border: 0.2rem solid orangered;
       box-shadow: 5px 5px 10px black;
