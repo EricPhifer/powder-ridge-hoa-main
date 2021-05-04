@@ -96,9 +96,6 @@ const MemberStyles = styled.div`
       margin: 0.5rem;
       width: 100%;
     }
-    li:last-child {
-      margin-left: 0;
-    }
   }
 `;
 
@@ -138,6 +135,7 @@ const CommitteeStyles = styled.div`
     }
     button {
       font-size: 1.5rem;
+      width: 100%;
     }
     div {
       font-size: 1.75rem;
@@ -199,7 +197,6 @@ const FormStyles = styled.div`
   }
   .submitButton {
     margin-top: 1.5rem;
-    text-align: right;
     &:hover {
       border: 0.2rem solid orangered;
       box-shadow: 5px 5px 10px black;
@@ -213,6 +210,7 @@ const FormStyles = styled.div`
     }
     button {
       margin-top: 1rem;
+      width: 100%;
     }
   }
   @media (max-width: 600px) {
