@@ -60,9 +60,9 @@ const MemberStyles = styled.div`
   }
   button {
     padding: 0.5rem 2rem;
-    border: 0.2rem dashed tomato;
     text-align: center;
     text-decoration: none;
+    margin: 1rem;
   }
   button:hover {
     border: 0.2rem solid orangered;
