@@ -59,7 +59,6 @@ const MemberStyles = styled.div`
     color: white;
   }
   button {
-    width: 100%;
     padding: 0.5rem 2rem;
     text-align: center;
     text-decoration: none;
@@ -91,6 +90,10 @@ const MemberStyles = styled.div`
   }
   @media (max-width: 400px) {
     font-size: 1.5rem;
+    ul {
+      width: 100%;
+      text-align: center;
+    }
     button {
       margin-left: 0;
       padding: 2px;
