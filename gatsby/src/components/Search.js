@@ -6,7 +6,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 export const SearchStyles = styled.div`
   text-align: center;
   div {
+    display: grid;
     margin: 12px;
+    grid-template-columns: 1fr;
   }
   input {
     align-items: center;
