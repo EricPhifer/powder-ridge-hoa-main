@@ -9,7 +9,7 @@ const HomeStyles = styled.div`
     margin: 0;
     padding: 0;
     h1 {
-      font-size: 2.22rem;
+      font-size: 4rem;
       text-shadow: 1px 1px 15px whitesmoke;
       font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS',
         sans-serif;
@@ -38,23 +38,15 @@ const HomeStyles = styled.div`
       text-decoration: none;
     }
   }
+  // TODO: why wont this apply?
   @media (max-width: 400px) {
     .heroBG {
       h1 {
-        font-size: 2rem;
-        margin: 1rem;
-        padding-right: 2.5rem;
+        font-size: 2.22rem;
       }
     }
     .homeContent {
       font-size: 1.5rem;
-    }
-  }
-  @media (max-width: 900px) {
-    .heroBG {
-      h1 {
-        font-size: 4rem;
-      }
     }
   }
 `;
