@@ -18,6 +18,9 @@ export const SearchStyles = styled.div`
     width: 40vw;
     margin-right: 2rem;
   }
+  button {
+    margin-top: 1rem;
+  }
   button:hover {
     box-shadow: 5px 5px 10px black;
   }

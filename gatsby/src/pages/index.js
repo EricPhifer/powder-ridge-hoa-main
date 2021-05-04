@@ -9,7 +9,7 @@ const HomeStyles = styled.div`
     margin: 0;
     padding: 0;
     h1 {
-      font-size: 4rem;
+      font-size: 2.22rem;
       text-shadow: 1px 1px 15px whitesmoke;
       font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS',
         sans-serif;
