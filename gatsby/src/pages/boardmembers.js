@@ -125,12 +125,6 @@ const CommitteeStyles = styled.div`
       text-decoration: none;
       color: white;
     }
-    button {
-      padding: 0.4rem 3rem;
-      border: 0.2rem dashed tomato;
-      text-align: center;
-      text-decoration: none;
-    }
     button:hover {
       border: 0.2rem solid orangered;
       box-shadow: 5px 5px 10px black;
