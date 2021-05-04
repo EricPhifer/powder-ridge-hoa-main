@@ -153,7 +153,7 @@ export default function MinutesItemGrid() {
                         <strong>Cost</strong>
                       </div>
                       <div data-name="Timeframe">
-                        <strong>Timeframe</strong>
+                        <strong>Time</strong>
                       </div>
                     </li>
                     {minute.insertReport.expenses.map((expense) => (
