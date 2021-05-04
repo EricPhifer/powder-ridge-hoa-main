@@ -176,13 +176,13 @@ const FormStyles = styled.div`
     }
   }
   #name {
-    grid-column: 2 / span 5;
+    grid-column: 2 / span 11;
   }
   #email {
-    grid-column: 2 / span 5;
+    grid-column: 2 / span 11;
   }
   #subject {
-    grid-column: 1 / span 6;
+    grid-column: 1 / span 12;
   }
   textarea {
     grid-column: 1 / span 12;
