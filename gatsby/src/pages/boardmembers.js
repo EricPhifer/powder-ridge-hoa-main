@@ -59,10 +59,11 @@ const MemberStyles = styled.div`
     color: white;
   }
   button {
+    width: 100%;
     padding: 0.5rem 2rem;
     text-align: center;
     text-decoration: none;
-    margin: 1rem;
+    margin: 0.5rem;
   }
   button:hover {
     border: 0.2rem solid orangered;
