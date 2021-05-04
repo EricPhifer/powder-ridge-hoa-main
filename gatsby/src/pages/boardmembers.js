@@ -91,12 +91,16 @@ const MemberStyles = styled.div`
   @media (max-width: 400px) {
     font-size: 1.5rem;
     ul {
-      width: 100%;
-      text-align: center;
+      display: grid;
+      margin-left: -15%;
+      grid-template-columns: 1fr;
     }
     button {
+      margin: 0.5rem;
+      width: 100%;
+    }
+    li:last-child {
       margin-left: 0;
-      padding: 2px;
     }
   }
 `;
