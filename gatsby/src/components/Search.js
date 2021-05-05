@@ -9,8 +9,8 @@ export const SearchStyles = styled.div`
     display: grid;
     margin: 12px;
     grid-template-areas:
-      '. | . | search | . | .'
-      '. | . | . | . | searchbtn | . | . | . | .';
+      '. . . search search search search search search . . .'
+      '. . . . searchbtn searchbtn searchbtn searchbtn . . . .';
   }
   input {
     align-items: center;
