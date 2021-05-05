@@ -51,6 +51,22 @@ const TreasurerStyles = styled.div`
       }
     }
   }
+  @media (max-width: 524px) and (min-width: 401px) {
+    .quarter {
+      font-size: 1.28rem;
+      div {
+        border: 0.5 solid black;
+      }
+    }
+  }
+  @media (max-width: 374px) and (min-width: 320px) {
+    .quarter {
+      font-size: 1.1rem;
+      div {
+        border: 0.5 solid black;
+      }
+    }
+  }
 `;
 
 export default function MinutesItemGrid() {
