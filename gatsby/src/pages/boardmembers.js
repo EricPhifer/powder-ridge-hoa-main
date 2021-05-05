@@ -213,25 +213,6 @@ const FormStyles = styled.div`
       width: 100%;
     }
   }
-  @media (max-width: 600px) {
-    .formContainer {
-      .nameLabel {
-        grid-column: 1 / span 1;
-      }
-      .emailLabel {
-        grid-column: 1 / span 1;
-      }
-    }
-    #name {
-      grid-column: 2 / span 5;
-    }
-    #email {
-      grid-column: 2 / span 5;
-    }
-    #subject {
-      grid-column: 1 / span 12;
-    }
-  }
 `;
 
 export default function BoardMembers({ data, pageContext }) {
