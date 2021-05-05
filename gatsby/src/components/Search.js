@@ -8,25 +8,27 @@ export const SearchStyles = styled.div`
   div {
     display: grid;
     margin: 12px;
-    grid-template-columns: 1fr;
+    grid-template-areas:
+      '. | . | search | . | .'
+      '. | . | . | . | searchbtn | . | . | . | .';
   }
   input {
     align-items: center;
     justify-content: center;
     text-align: center;
     border-radius: 2rem;
-    width: 40vw;
-    margin-right: 2rem;
+    grid-area: search;
   }
   button {
     margin-top: 1rem;
+    grid-area: searchbtn;
   }
   button:hover {
     box-shadow: 5px 5px 10px black;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 900px) {
     input {
-      width: 95%;
+      width: 100vw;
     }
   }
 `;
