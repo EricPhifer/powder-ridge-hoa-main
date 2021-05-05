@@ -49,6 +49,13 @@ const HomeStyles = styled.div`
       font-size: 1.5rem;
     }
   }
+  @media (min-width: 401px) and (max-width: 600px) {
+    .heroBG {
+      h1 {
+        font-size: 2.6rem;
+      }
+    }
+  }
 `;
 
 export default function HomePage({ data }) {
