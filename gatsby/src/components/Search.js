@@ -26,11 +26,6 @@ export const SearchStyles = styled.div`
   button:hover {
     box-shadow: 5px 5px 10px black;
   }
-  @media (max-width: 900px) {
-    input {
-      width: 100vw;
-    }
-  }
 `;
 
 export default function Search() {
