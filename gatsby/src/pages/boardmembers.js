@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import SanityImage from 'gatsby-plugin-sanity-image';
 import styled from 'styled-components';
+import { update } from 'lodash';
 import useForm from '../../utils/useForm';
 import useContact from '../../utils/useContact';
 import WhoToEmail from '../components/WhoToEmail';
@@ -397,6 +398,18 @@ export default function BoardMembers({ data, pageContext }) {
                 onChange={updateValue}
                 placeholder="Reason for contacting?"
               />
+              <select
+                value={values.contacting}
+                onChange={updateValue}
+                id="contactList"
+              >
+                <option value="WhoToContact">Who Are You Contacting?</option>
+                <option value="President">President</option>
+                <option value="Secretary">Secretary</option>
+                <option value="VicePresident">Vice President</option>
+                <option value="Treasurer">Treasurer</option>
+                <option value="Chair">Committee Chairman</option>
+              </select>
               <label htmlFor="message" className="messageLabel">
                 Message
               </label>
