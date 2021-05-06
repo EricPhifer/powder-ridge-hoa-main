@@ -145,6 +145,15 @@ const CommitteeStyles = styled.div`
       font-size: 1.75rem;
     }
   }
+  /* Hiding call button on non-mobile devices */
+  .call {
+    display: none;
+  }
+  @media (pointer: coarse) {
+    .call {
+      display: block;
+    }
+  }
 `;
 
 const CommitteesStyles = styled.div``;
@@ -268,8 +277,7 @@ export default function BoardMembers({ data, pageContext }) {
                   type="button"
                   name={member.position}
                   id={member.id}
-                  className="memberbtn"
-                  onClick={() => console.log()}
+                  className="memberbtn call"
                 >
                   Call {member.name}
                 </button>
@@ -313,12 +321,11 @@ export default function BoardMembers({ data, pageContext }) {
                     type="button"
                     name={committee.name}
                     id={committee.id}
-                    className="committeebtn"
+                    className="committeebtn call"
                   >
                     <a tel={committee.phone}>Call {committee.name}</a>
                   </button>
-                </div>{' '}
-                or{' '}
+                </div>
                 <div className="container">
                   <button
                     type="button"
