@@ -288,9 +288,7 @@ export default function BoardMembers({ data, pageContext }) {
                   id={member.id}
                   className="memberbtn call"
                 >
-                  <a href="tel:" {...member.phone}>
-                    Call {member.name}
-                  </a>
+                  <a href="tel:$(member.phone)">Call {member.name}</a>
                 </button>
               </li>
             </ul>
@@ -344,7 +342,7 @@ export default function BoardMembers({ data, pageContext }) {
                     id={committee.id}
                     className="committeebtn"
                   >
-                    <a href={committee.email}>Email {committee.name}</a>
+                    <a href="#formContainer">Email {committee.name}</a>
                   </button>
                 </div>
               </div>
