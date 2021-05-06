@@ -35,7 +35,6 @@ export default function TermsConditions({ data }) {
   const order = countOrder(terms);
   const members = data.members.nodes;
   const mappedMembers = members.map((member) => member);
-  console.log(mappedMembers[2].phone, mappedMembers[2].email);
   return (
     <>
       <SEO title="Terms &amp; Conditions" />
