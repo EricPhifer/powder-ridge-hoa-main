@@ -98,6 +98,15 @@ const MemberStyles = styled.div`
       width: 100%;
     }
   }
+  /* Hiding call button on non-mobile devices */
+  .call {
+    display: none;
+  }
+  @media (pointer: coarse) {
+    .call {
+      display: inline;
+    }
+  }
 `;
 
 const CommitteeStyles = styled.div`
