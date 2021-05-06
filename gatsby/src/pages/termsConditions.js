@@ -25,6 +25,9 @@ function countOrder(terms) {
 export default function TermsConditions({ data }) {
   const terms = data.terms.nodes;
   const order = countOrder(terms);
+  const members = data.members.nodes;
+  const mappedMembers = members.map((member) => member);
+  console.log(mappedMembers);
   return (
     <>
       <SEO title="Terms &amp; Conditions" />
@@ -51,7 +54,7 @@ export default function TermsConditions({ data }) {
           <div>P.O. Box 4574</div>
           <div>Grand Junction, CO 81501 United States</div>
           <div>
-            <a href="970-261-0818">Contact Us by phone.</a>
+            <a href={mappedMembers.phone}>Contact Us by phone.</a>
           </div>
           <div>
             <a href="powderridgesecretary@gmail.com">Contact Us by email.</a>
@@ -70,6 +73,11 @@ export const query = graphql`
         id
         order
         title
+      }
+    }
+    members: allSanityBoardMembers {
+      nodes {
+        phone
       }
     }
   }
