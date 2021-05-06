@@ -288,7 +288,9 @@ export default function BoardMembers({ data, pageContext }) {
                   id={member.id}
                   className="memberbtn call"
                 >
-                  Call {member.name}
+                  <a href="tel:" {...member.phone}>
+                    Call {member.name}
+                  </a>
                 </button>
               </li>
             </ul>
