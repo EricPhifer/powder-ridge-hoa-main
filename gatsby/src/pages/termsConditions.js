@@ -14,6 +14,14 @@ const TermStyles = styled.div`
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .call {
+    display: none;
+  }
+  @media (pointer: coarse) {
+    .call {
+      display: block;
+    }
+  }
 `;
 
 function countOrder(terms) {
@@ -27,7 +35,7 @@ export default function TermsConditions({ data }) {
   const order = countOrder(terms);
   const members = data.members.nodes;
   const mappedMembers = members.map((member) => member);
-  console.log(mappedMembers);
+  console.log(mappedMembers.phone[2]);
   return (
     <>
       <SEO title="Terms &amp; Conditions" />
@@ -53,11 +61,11 @@ export default function TermsConditions({ data }) {
           <div>Powder Ridge Homeowners Association</div>
           <div>P.O. Box 4574</div>
           <div>Grand Junction, CO 81501 United States</div>
-          <div>
-            <a href={mappedMembers.phone}>Contact Us by phone.</a>
+          <div className="call">
+            <a href={mappedMembers.phone[2]}>Contact Us by phone.</a>
           </div>
           <div>
-            <a href="powderridgesecretary@gmail.com">Contact Us by email.</a>
+            <a href={mappedMembers.email[2]}>Contact Us by email.</a>
           </div>
         </div>
       </TermStyles>
@@ -78,6 +86,8 @@ export const query = graphql`
     members: allSanityBoardMembers {
       nodes {
         phone
+        email
+        id
       }
     }
   }
