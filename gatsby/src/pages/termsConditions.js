@@ -62,10 +62,10 @@ export default function TermsConditions({ data }) {
           <div>P.O. Box 4574</div>
           <div>Grand Junction, CO 81501 United States</div>
           <div className="call">
-            <a href={mappedMembers.phone[2]}>Contact Us by phone.</a>
+            <a href={mappedMembers[2].phone}>Contact Us by phone.</a>
           </div>
           <div>
-            <a href={mappedMembers.email[2]}>Contact Us by email.</a>
+            <a href={mappedMembers[2].email}>Contact Us by email.</a>
           </div>
         </div>
       </TermStyles>
