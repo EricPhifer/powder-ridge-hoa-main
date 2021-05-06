@@ -204,6 +204,9 @@ const FormStyles = styled.div`
   #subject {
     grid-column: 1 / span 12;
   }
+  #contactList {
+    grid-column: 1 / span 6;
+  }
   textarea {
     grid-column: 1 / span 12;
   }
@@ -230,6 +233,9 @@ const FormStyles = styled.div`
     button {
       margin-top: 1rem;
       width: 100%;
+    }
+    #contactList {
+      grid-column: 1 / span 12;
     }
   }
 `;
