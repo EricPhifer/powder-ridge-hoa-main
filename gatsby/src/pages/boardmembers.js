@@ -194,6 +194,9 @@ const FormStyles = styled.div`
     .messageLabel {
       grid-column: 1 / span 1;
     }
+    .contactingLabel {
+      grid-column: 1 / span 1;
+    }
   }
   #name {
     grid-column: 2 / span 11;
@@ -404,6 +407,9 @@ export default function BoardMembers({ data, pageContext }) {
                 onChange={updateValue}
                 placeholder="Reason for contacting?"
               />
+              <label htmlFor="contacting" className="contactingLabel">
+                Contacting:
+              </label>
               <select
                 type="contacting"
                 name="contacting"
