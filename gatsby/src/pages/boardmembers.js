@@ -339,7 +339,7 @@ export default function BoardMembers({ data, pageContext }) {
                     id={committee.id}
                     className="committeebtn call"
                   >
-                    <a tel={committee.phone}>Call {committee.name}</a>
+                    <a href="tel:{committee.phone}">Call {committee.name}</a>
                   </button>
                 </div>
                 <div className="container">
@@ -405,6 +405,8 @@ export default function BoardMembers({ data, pageContext }) {
                 placeholder="Reason for contacting?"
               />
               <select
+                type="contacting"
+                name="contacting"
                 value={values.contacting}
                 onChange={updateValue}
                 id="contactList"
