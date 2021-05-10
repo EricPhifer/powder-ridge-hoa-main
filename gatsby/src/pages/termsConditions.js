@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import SEO from '../components/SEO';
@@ -61,10 +61,10 @@ export default function TermsConditions({ data }) {
           <div>P.O. Box 4574</div>
           <div>Grand Junction, CO 81501 United States</div>
           <div className="call">
-            <a href={mappedMembers[2].phone}>Contact Us by phone.</a>
+            <a href={`tel:${mappedMembers[2].phone}`}>Contact Us by Phone</a>
           </div>
           <div>
-            <a href={mappedMembers[2].email}>Contact Us by email.</a>
+            <Link to="/boardmembers">Contact Us by Email</Link>
           </div>
         </div>
       </TermStyles>
