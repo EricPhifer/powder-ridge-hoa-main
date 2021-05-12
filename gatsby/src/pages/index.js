@@ -38,7 +38,6 @@ const HomeStyles = styled.div`
       text-decoration: none;
     }
   }
-  // TODO: why wont this apply?
   @media (max-width: 400px) {
     .heroBG {
       h1 {
