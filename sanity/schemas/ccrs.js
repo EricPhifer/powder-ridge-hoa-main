@@ -28,10 +28,16 @@ export default {
       },
     },
     {
+      name: 'refIdDisplay',
+      title: 'Document Reference to Display',
+      type: 'string',
+      description: 'What is the reference ID as it should be displayed?',
+    },
+    {
       name: 'refId',
       title: 'Document Reference',
       type: 'string',
-      description: 'What is the reference ID?',
+      description: 'What is the reference ID as single decimal?',
     },
   ],
   preview: {
