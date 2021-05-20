@@ -55,23 +55,17 @@ export default function Search() {
     }
   `);
 
-  const faqs = data.faqs.nodes;
-  const ccrs = data.ccrs.nodes;
-  const minutes = data.minutes.nodes;
-  const mappedFaqs = faqs.map((faq) => [faq.question, faq.answer]);
-  const mappedCcrs = ccrs.map((ccr) => [ccr.ccrContent, ccr.refId]);
-  const mappedMinutes = minutes.map((minute) => [
-    minute.tags,
-    minute.meetingStart,
-  ]);
-  const combined = [...mappedCcrs, ...mappedFaqs, ...mappedMinutes];
-
-  const fuse = new Fuse(combined);
-
   return (
     <SearchStyles>
       <div>
-        <input name="search" placeholder="Search by Keywords" />
+        <input
+          ref={searchRef} // where does this lead?
+          type="search"
+          placeholder="Search by Keywords"
+          defaultValue={defaultSearchQuery} // where?
+          onChange={updateSearchQuery} // where?
+          name="search"
+        />
         <button type="button" onClick={() => fuse.search(combined)}>
           Search
         </button>

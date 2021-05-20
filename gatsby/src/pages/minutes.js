@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Search from '../components/Search';
 import { PageCardStyles } from '../styles/PageCardStyles';
 import MinutesItemGrid from '../components/MinutesItemGrid';
 import SEO from '../components/SEO';
@@ -10,7 +9,6 @@ export default function Minutes() {
     <>
       <SEO title="Board Minutes" />
       <h1>Board Minutes</h1>
-      <Search />
       <PageCardStyles>
         <MinutesItemGrid />
       </PageCardStyles>
