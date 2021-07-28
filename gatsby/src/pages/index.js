@@ -8,6 +8,10 @@ const HomeStyles = styled.div`
   .heroBG {
     margin: 0;
     padding: 0;
+    .imgContainer {
+      height: 50vh;
+      width: 50vh;
+    }
     h1 {
       font-size: 4rem;
       text-shadow: 1px 1px 15px whitesmoke;
@@ -66,17 +70,19 @@ export default function HomePage({ data }) {
         <HomeStyles key={home.id}>
           <div className="heroBG">
             <h1>{home.welcome}</h1>
-            <SanityImage
-              {...home.image}
-              alt="Powder Ridge Homes"
-              height={500}
-              style={{
-                width: '100%',
-                height: '50%',
-                objectFit: 'cover',
-                auto: 'format',
-              }}
-            />
+            <div className="imgContainer">
+              <SanityImage
+                {...home.image}
+                alt="Powder Ridge Homes"
+                height={500}
+                style={{
+                  width: '100%',
+                  height: '50%',
+                  objectFit: 'cover',
+                  auto: 'format',
+                }}
+              />
+            </div>
           </div>
           {home.contents.map((info) => (
             <div className="homeContent">
