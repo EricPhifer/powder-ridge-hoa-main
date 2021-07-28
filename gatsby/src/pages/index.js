@@ -9,8 +9,13 @@ const HomeStyles = styled.div`
     margin: 0;
     padding: 0;
     .imgContainer {
+      display: grid;
+      grid-template-areas: '. . . homeImg homeImg homeImg homeImg homeImg homeImg . . .';
+      place-items: center;
       height: 50vh;
-      width: 50vh;
+    }
+    #homeImg {
+      grid-area: homeImg;
     }
     h1 {
       font-size: 4rem;
@@ -75,8 +80,9 @@ export default function HomePage({ data }) {
                 {...home.image}
                 alt="Powder Ridge Homes"
                 height={500}
+                id="homeImg"
                 style={{
-                  width: '100%',
+                  width: '70%',
                   height: '100%',
                   objectFit: 'cover',
                   auto: 'format',
