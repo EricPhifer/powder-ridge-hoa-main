@@ -34,7 +34,7 @@ export default function CcrsItemGrid() {
             <div className="content">{ccr.ccrContent}</div>
             <div className="rightAlign">
               {'§'}
-              {ccr.refId}
+              {ccr.refId} {/* will become {ccr.refIdDisplay} */}
             </div>
           </div>
         ))}
