@@ -4,16 +4,20 @@ import styled from 'styled-components';
 import bg from '../assets/images/bg.png';
 
 const NavStyles = styled.nav`
-  margin-bottom: 3rem;
+  background-color: #fff;
+  padding: 1rem 3rem;
+  box-shadow: 0 3px 10px black;
   ul {
     margin: 0;
     padding: 0;
-    text-align: center;
-    list-style: none;
-    display: grid;
-    grid-template-columns: auto 1fr 1fr 1fr 1fr;
-    gap: 2rem;
+    display: flex;
+    flex-flow: row nowrap;
     align-items: center;
+    justify-content: space-between;
+    .logoLeft {
+      justify-self: start;
+    }
+    list-style: none;
     font-variant: small-caps;
   }
   .logo {
@@ -81,30 +85,169 @@ const NavStyles = styled.nav`
       font-size: 1.2rem;
     }
   }
+  /* Hide menu on small screens */
+  @media only screen and (max-width: 599px) {
+    display: none;
+  }
+`;
+
+const MobileNavStyles = styled.nav`
+  /* Show compressed menu on small screens */
+  @media only screen and (min-width: 600px) {
+    display: none;
+  }
+  width: 100vw;
+  height: 5rem;
+  position: fixed;
+  background-color: #fff;
+  padding: 1rem 3rem;
+  box-shadow: 0 3px 10px black;
+  .logo {
+    width: 9rem;
+    height: 7rem;
+    background-image: url(${bg});
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  #menuToggle {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  #menuToggle input {
+    display: flex;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+  }
+  #menuToggle span {
+    display: flex;
+    position: relative;
+    width: 29px;
+    height: 2px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 5px 0;
+    background: #000;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
+  #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+  }
+  #menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-3px, -1px);
+    background: #36383f;
+  }
+  #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+  #menu {
+    height: 100vh;
+    width: 75vw;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px #85888c;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+  #menu li {
+    transition-delay: 2s;
+  }
+  #menuToggle input:checked ~ ul {
+    transform: none;
+  }
+  ul {
+    list-style-type: none;
+    li {
+      padding: 3rem 1rem;
+    }
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    a:hover {
+      opacity: 0.5;
+    }
+  }
 `;
 
 export default function Nav() {
   return (
-    <NavStyles>
-      <ul>
-        <li>
-          <Link to="/">
-            <div className="logo" />
-          </Link>
-        </li>
-        <li>
-          <Link to="/faqs">FAQs</Link>
-        </li>
-        <li>
-          <Link to="/ccrs">CCRs</Link>
-        </li>
-        <li>
-          <Link to="/boardmembers">Board Members</Link>
-        </li>
-        <li>
-          <Link to="/minutes">Board Minutes</Link>
-        </li>
-      </ul>
-    </NavStyles>
+    <>
+      <NavStyles>
+        <ul>
+          <li className="logoLeft">
+            <Link to="/">
+              <div className="logo" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/faqs">FAQs</Link>
+          </li>
+          <li>
+            <Link to="/ccrs">CCRs</Link>
+          </li>
+          <li>
+            <Link to="/boardmembers">Board Members</Link>
+          </li>
+          <li>
+            <Link to="/minutes">Board Minutes</Link>
+          </li>
+        </ul>
+      </NavStyles>
+      <MobileNavStyles>
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span />
+          <span />
+          <span />
+          <ul id="menu">
+            <li className="logoLeft mobileLink">
+              <Link to="/">
+                <div className="logo" />
+              </Link>
+            </li>
+            <li className="mobileLink">
+              <Link to="/faqs">FAQs</Link>
+            </li>
+            <li className="mobileLink">
+              <Link to="/ccrs">CCRs</Link>
+            </li>
+            <li className="mobileLink">
+              <Link to="/boardmembers">Board Members</Link>
+            </li>
+            <li className="mobileLink">
+              <Link to="/minutes">Board Minutes</Link>
+            </li>
+          </ul>
+        </div>
+      </MobileNavStyles>
+    </>
   );
 }

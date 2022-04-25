@@ -1,6 +1,6 @@
+import React from 'react';
 import { graphql, Link } from 'gatsby';
 import SanityImage from 'gatsby-plugin-sanity-image';
-import React from 'react';
 import styled from 'styled-components';
 import SEO from '../components/SEO';
 
@@ -8,53 +8,107 @@ const HomeStyles = styled.div`
   .heroBG {
     margin: 0;
     padding: 0;
-    .imgContainer {
-      display: grid;
-      grid-template-areas: '. . . homeImg homeImg homeImg homeImg homeImg homeImg . . .';
-      place-items: center;
-      height: 50vh;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    img {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
-    #homeImg {
-      grid-area: homeImg;
-    }
-    h1 {
-      font-size: 4rem;
-      text-shadow: 1px 1px 15px whitesmoke;
-      font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS',
-        sans-serif;
-    }
-  }
-  .homeContent {
-    padding: 1rem;
-    border-left: 10px black groove;
-    border-bottom: 2px black groove;
-    margin: 3rem;
-    h3 {
-      text-align: left;
-      padding-bottom: 0.5rem;
-      padding-left: 1rem;
-      text-decoration: underline;
-    }
-    div {
-      margin-left: 2rem;
-      margin-right: 2rem;
-    }
-    button {
-      margin-left: 4rem;
-      margin-top: 1rem;
-    }
-    a {
-      text-decoration: none;
-    }
-  }
-  @media (max-width: 400px) {
-    .heroBG {
+    .overlay {
+      display: flex;
+      flex-flow: column nowrap;
       h1 {
-        font-size: 2.22rem;
+        margin: 30rem 1rem 0;
+        color: #fff;
+        font-size: 8vmin;
+        text-shadow: 3px 3px 10px black;
+        font-family: 'Canto', 'Gill Sans', 'Gill Sans MT', 'Calibri',
+          'Trebuchet MS', sans-serif;
+        font-style: italic;
+        font-weight: bold;
+      }
+      .startTriangle {
+        width: 100vw;
+        height: 20vh;
+        position: absolute;
+        bottom: 0;
+        background-image: linear-gradient(
+            to bottom right,
+            transparent 50%,
+            #fff 0
+          ),
+          linear-gradient(to top right, #fff 50%, transparent 0);
+        background-size: 50% 100%;
+        background-repeat: no-repeat;
+        background-position: left, right;
+        @media only screen and (max-width: 700px) {
+          height: 15vh;
+        }
       }
     }
-    .homeContent {
-      font-size: 1.5rem;
+    @media only screen and (max-width: 700px) {
+      height: 75vh;
+      img {
+        height: 75vh;
+      }
+      .overlay {
+        h1 {
+          margin: 10rem 1rem;
+          font-size: 4rem;
+        }
+        .startTriangle {
+          bottom: 25vh;
+          z-index: -1;
+        }
+      }
+    }
+  }
+  .contentContainer {
+    width: 100vw;
+    margin: 5vh auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    a {
+      text-decoration: none;
+      width: 250px;
+      height: 250px;
+      margin: 2rem;
+      padding: 1rem;
+      border: 2px solid lightgray;
+      box-shadow: 3px 3px 10px black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h3 {
+        font-family: 'Canto', 'Gill Sans', 'Gill Sans MT', 'Calibri',
+          'Trebuchet MS', sans-serif;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 2.5rem;
+        text-align: center;
+        align-self: center;
+      }
+      p {
+        text-align: center;
+        font-size: 1.5rem;
+      }
+      @media (max-width: 400px) {
+        .heroBG {
+          h1 {
+            font-size: 2.22rem;
+          }
+        }
+        .homeContent {
+          font-size: 1.5rem;
+        }
+      }
     }
   }
   @media (min-width: 401px) and (max-width: 600px) {
@@ -74,31 +128,29 @@ export default function HomePage({ data }) {
       {homepage.map((home) => (
         <HomeStyles key={home.id}>
           <div className="heroBG">
-            <h1>{home.welcome}</h1>
-            <div className="imgContainer">
-              <SanityImage
-                {...home.image}
-                alt="Powder Ridge Homes"
-                height={500}
-                id="homeImg"
-                style={{
-                  width: '70%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  auto: 'format',
-                }}
-              />
+            <SanityImage
+              {...home.image}
+              alt="Powder Ridge Homes"
+              height={500}
+              id="homeImg"
+              style={{
+                objectFit: 'cover',
+                auto: 'format',
+              }}
+            />
+            <div className="overlay">
+              <h1>{home.welcome}</h1>
+              <div className="startTriangle" />
             </div>
           </div>
-          {home.contents.map((info) => (
-            <div className="homeContent">
-              <h3>{info.heading}</h3>
-              <div>{info.content}</div>
-              <button type="button">
-                <Link to={info.contentURL}>Check it out here</Link>
-              </button>
-            </div>
-          ))}
+          <div className="contentContainer">
+            {home.contents.map((info) => (
+              <Link to={info.contentURL}>
+                <h3>{info.heading}</h3>
+                <p>{info.content}</p>
+              </Link>
+            ))}
+          </div>
         </HomeStyles>
       ))}
     </>
