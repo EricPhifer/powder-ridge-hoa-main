@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const PageCardStyles = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr;
@@ -13,12 +15,14 @@ export const CardStyles = styled.div`
   grid-template-columns: 1fr;
   padding-left: 2rem;
   padding-right: 2rem;
+  z-index: -1;
 `;
 export const ItemStyles = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
   align-content: center;
+  z-index: -1;
   h4 {
     text-align: center;
   }

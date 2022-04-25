@@ -2,14 +2,70 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import SanityImage from 'gatsby-plugin-sanity-image';
 import styled from 'styled-components';
-import { update } from 'lodash';
 import useForm from '../../utils/useForm';
 import useContact from '../../utils/useContact';
 import WhoToEmail from '../components/WhoToEmail';
 import SEO from '../components/SEO';
 
+const HeroStyles = styled.div`
+  .heroBG {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    .overlay {
+      display: flex;
+      flex-flow: column nowrap;
+      h1 {
+        margin: 30rem 1rem 0;
+        color: #fff;
+        font-size: 8vmin;
+        text-shadow: 3px 3px 10px black;
+        font-family: 'Canto', 'Gill Sans', 'Gill Sans MT', 'Calibri',
+          'Trebuchet MS', sans-serif;
+        font-style: italic;
+        font-weight: bold;
+      }
+      .startTriangle {
+        width: 100vw;
+        height: 20vh;
+        position: absolute;
+        bottom: 0;
+        background-image: linear-gradient(
+            to bottom right,
+            transparent 50%,
+            #fff 0
+          ),
+          linear-gradient(to top right, #fff 50%, transparent 0);
+        background-size: 50% 100%;
+        background-repeat: no-repeat;
+        background-position: left, right;
+        @media only screen and (max-width: 700px) {
+          height: 15vh;
+        }
+      }
+    }
+    @media only screen and (max-width: 700px) {
+      height: 75vh;
+      .overlay {
+        h1 {
+          margin: 10rem 1rem;
+          font-size: 4rem;
+        }
+        .startTriangle {
+          bottom: 25vh;
+          z-index: -1;
+        }
+      }
+    }
+  }
+`;
+
 const MemberStyles = styled.div`
   --columns: 4;
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(var(--columns), minmax(auto, 3fr));
   gap: 2rem;
@@ -111,7 +167,8 @@ const MemberStyles = styled.div`
 `;
 
 const CommitteeStyles = styled.div`
-  margin: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
   border: 1px solid black;
   padding: 2rem;
   div {
@@ -166,9 +223,9 @@ const CommitteeStyles = styled.div`
   }
 `;
 
-const CommitteesStyles = styled.div``;
-
 const FormStyles = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 1.5rem;
   fieldset {
     padding: 3.5rem;
@@ -260,7 +317,15 @@ export default function BoardMembers({ data, pageContext }) {
   return (
     <>
       <SEO title="Board Members" />
-      <h1>Board Members</h1>
+      <HeroStyles>
+        <div className="heroBG">
+          <div className="faqImg" />
+          <div className="overlay">
+            <h1>Board Members</h1>
+            <div className="startTriangle" />
+          </div>
+        </div>
+      </HeroStyles>
       {members.map((member) => (
         <MemberStyles key={member.id}>
           <div className="image">
