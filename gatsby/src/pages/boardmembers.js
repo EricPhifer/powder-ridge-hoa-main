@@ -243,57 +243,30 @@ const CommitteesStyles = styled.div``;
 
 const FormStyles = styled.div`
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.5rem;
-  fieldset {
-    padding: 3.5rem;
+  margin: 5rem auto;
+  display: flex;
+  legend {
+    font-size: 3rem;
   }
-  .formContainer {
-    --columns: 12;
-    display: grid;
-    grid-template-columns: repeat(var(--columns), minmax(auto, 1fr));
-    gap: 1rem;
-    input {
-      border: 1px solid grey;
-      padding-left: 5px;
-    }
-    .nameLabel {
-      grid-column: 1 / span 1;
-    }
-    .emailLabel {
-      grid-column: 1 / span 1;
-    }
-    .subjectLabel {
-      grid-column: 1 / span 1;
-    }
-    .messageLabel {
-      grid-column: 1 / span 1;
-    }
-    .contactingLabel {
-      grid-column: 1 / span 1;
-    }
-  }
-  #name {
-    grid-column: 2 / span 11;
-  }
-  #email {
-    grid-column: 2 / span 11;
-  }
-  #subject {
-    grid-column: 1 / span 12;
-  }
-  #contactList {
-    grid-column: 1 / span 6;
-  }
+  input,
   textarea {
-    grid-column: 1 / span 12;
+    width: 99%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    margin: 5px 0;
+    padding: 10px 0 10px 10px;
   }
   .hide {
     display: none;
   }
-  .contacting {
-    padding-top: 1.2rem;
-    padding-bottom: 1.2rem;
+  select,
+  button {
+    width: 100%;
+  }
+  select {
     color: #7c7c7c;
   }
   .submitButton {
@@ -304,6 +277,10 @@ const FormStyles = styled.div`
     }
   }
   @media (max-width: 400px) {
+    input,
+    textarea {
+      width: 95%;
+    }
     fieldset {
       margin: 0;
       padding: 5px;
@@ -311,9 +288,6 @@ const FormStyles = styled.div`
     button {
       margin-top: 1rem;
       width: 100%;
-    }
-    #contactList {
-      grid-column: 1 / span 12;
     }
   }
 `;
@@ -346,19 +320,23 @@ export default function BoardMembers({ data, pageContext }) {
       </HeroStyles>
       {members.map((member) => (
         <MemberStyles key={member.id}>
-          <div className="image">
-            <SanityImage
-              {...member.image}
-              alt={member.name}
-              height={1000}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'contain',
-                auto: 'format',
-              }}
-            />
-          </div>
+          {member.image ? (
+            <div className="image">
+              <SanityImage
+                {...member.image}
+                alt={member.name}
+                height={1000}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  auto: 'format',
+                }}
+              />
+            </div>
+          ) : (
+            <div className="noImage" />
+          )}
           <div className="card">
             <div className="memberName">{member.name}</div>
             <div className="position">{member.position}</div>
@@ -456,69 +434,68 @@ export default function BoardMembers({ data, pageContext }) {
           <input type="hidden" name="form-name" value="contact" />
           <fieldset>
             <legend>Contact Us</legend>
-            <div className="formContainer">
-              <label htmlFor="name" className="nameLabel">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                value={values.name}
-                onChange={updateValue}
-                placeholder="Your Name"
-              />
-              <label htmlFor="email" className="emailLabel">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={values.email}
-                onChange={updateValue}
-                placeholder="Your Email"
-              />
-              <label htmlFor="subject" className="subjectLabel">
-                Subject
-              </label>
-              <input
-                type="subject"
-                name="subject"
-                id="subject"
-                value={values.subject}
-                onChange={updateValue}
-                placeholder="Reason for contacting?"
-              />
-              <label htmlFor="contacting" className="contactingLabel">
-                Contacting:
-              </label>
-              <select
-                type="contacting"
-                name="contacting"
-                value={values.contacting}
-                onChange={updateValue}
-                id="contactList"
-              >
-                <option value="WhoToContact">Who Are You Contacting?</option>
-                <option value="President">President</option>
-                <option value="Secretary">Secretary</option>
-                <option value="VicePresident">Vice President</option>
-                <option value="Treasurer">Treasurer</option>
-                <option value="Chair">Committee Chairman</option>
-              </select>
-              <label htmlFor="message" className="messageLabel">
-                Message
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                value={values.message}
-                onChange={updateValue}
-                rows="7"
-                placeholder="What question or message do you have?"
-              />
-            </div>
+
+            <label htmlFor="name" className="nameLabel">
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value={values.name}
+              onChange={updateValue}
+              placeholder="Your Name"
+            />
+            <label htmlFor="email" className="emailLabel">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={values.email}
+              onChange={updateValue}
+              placeholder="Your Email"
+            />
+            <label htmlFor="subject" className="subjectLabel">
+              Subject
+            </label>
+            <input
+              type="subject"
+              name="subject"
+              id="subject"
+              value={values.subject}
+              onChange={updateValue}
+              placeholder="Reason for contacting?"
+            />
+            <label htmlFor="contacting" className="contactingLabel">
+              Contacting:
+            </label>
+            <select
+              type="contacting"
+              name="contacting"
+              value={values.contacting}
+              onChange={updateValue}
+              id="contactList"
+            >
+              <option value="WhoToContact">Who Are You Contacting?</option>
+              <option value="President">President</option>
+              <option value="Secretary">Secretary</option>
+              <option value="VicePresident">Vice President</option>
+              <option value="Treasurer">Treasurer</option>
+              <option value="Chair">Committee Chairman</option>
+            </select>
+            <label htmlFor="message" className="messageLabel">
+              Message
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              value={values.message}
+              onChange={updateValue}
+              rows="7"
+              placeholder="What question or message do you have?"
+            />
             <WhoToEmail personToEmail={pageContext.name} />
             <button type="submit" className="submitButton" value="Submit">
               Submit Message

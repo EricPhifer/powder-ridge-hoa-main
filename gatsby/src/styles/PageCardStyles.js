@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ItemStyles = styled.div`
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   position: relative;
   justify-content: center;
@@ -16,6 +16,10 @@ export const ItemStyles = styled.div`
     margin: 1rem;
     border: 1px black solid;
     box-shadow: 5px 5px 10px black;
+  }
+  .ccrCard {
+    padding: 0 2rem;
+    margin: 0 1rem;
   }
   .title {
     font-weight: bold;

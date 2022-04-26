@@ -28,7 +28,7 @@ export default function CcrsItemGrid() {
   return (
     <ItemStyles>
       {order.map((ccr) => (
-        <div key={ccr.id} className="card">
+        <div key={ccr.id} className="ccrCard">
           <div className="title">{ccr.ccr}</div>
           <div className="content">{ccr.ccrContent}</div>
           <div className="rightAlign">
