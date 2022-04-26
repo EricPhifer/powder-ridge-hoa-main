@@ -2,15 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import CcrsItemGrid from '../components/CcrItemGrid';
 import SEO from '../components/SEO';
-import { PageCardStyles } from '../styles/PageCardStyles';
+import slopes from '../assets/images/prhoa-skiing-over-valley.jpg';
 
-const FAQStyles = styled.div`
+const CCRStyles = styled.div`
   .heroBG {
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
     margin: 0;
+    .ccrImg {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-image: url(${slopes});
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
     .overlay {
       display: flex;
       flex-flow: column nowrap;
@@ -45,6 +57,9 @@ const FAQStyles = styled.div`
     }
     @media only screen and (max-width: 700px) {
       height: 75vh;
+      .ccrImg {
+        height: 75vh;
+      }
       .overlay {
         h1 {
           margin: 10rem 1rem;
@@ -63,18 +78,16 @@ export default function Ccrs() {
   return (
     <>
       <SEO title="Covenants, Conditions &amp; Restrictions" />
-      <FAQStyles>
+      <CCRStyles>
         <div className="heroBG">
-          <div className="faqImg" />
+          <div className="ccrImg" />
           <div className="overlay">
             <h1>Covenants, Conditions &amp; Restrictions</h1>
             <div className="startTriangle" />
           </div>
         </div>
-      </FAQStyles>
-      <PageCardStyles>
-        <CcrsItemGrid />
-      </PageCardStyles>
+      </CCRStyles>
+      <CcrsItemGrid />
     </>
   );
 }

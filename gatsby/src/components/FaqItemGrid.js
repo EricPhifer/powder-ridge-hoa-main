@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { CardStyles, ItemStyles } from '../styles/PageCardStyles';
+import { ItemStyles } from '../styles/PageCardStyles';
 
 export default function FaqItemGrid() {
   const { faqs } = useStaticQuery(graphql`
@@ -16,15 +16,13 @@ export default function FaqItemGrid() {
   `);
   const allFaqs = faqs.nodes;
   return (
-    <CardStyles>
-      <ItemStyles>
-        {allFaqs.map((faq) => (
-          <div className="card" key={faq.id}>
-            <div className="title">{faq.question}</div>
-            <div className="content">{faq.answer}</div>
-          </div>
-        ))}
-      </ItemStyles>
-    </CardStyles>
+    <ItemStyles>
+      {allFaqs.map((faq) => (
+        <div className="card" key={faq.id}>
+          <div className="title">{faq.question}</div>
+          <div className="content">{faq.answer}</div>
+        </div>
+      ))}
+    </ItemStyles>
   );
 }

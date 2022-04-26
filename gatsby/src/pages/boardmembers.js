@@ -6,6 +6,7 @@ import useForm from '../../utils/useForm';
 import useContact from '../../utils/useContact';
 import WhoToEmail from '../components/WhoToEmail';
 import SEO from '../components/SEO';
+import skylift from '../assets/images/prhoa-skilift.jpg';
 
 const HeroStyles = styled.div`
   .heroBG {
@@ -14,6 +15,18 @@ const HeroStyles = styled.div`
     width: 100vw;
     height: 100vh;
     margin: 0;
+    .heroImg {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-image: url(${skylift});
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
     .overlay {
       display: flex;
       flex-flow: column nowrap;
@@ -48,6 +61,9 @@ const HeroStyles = styled.div`
     }
     @media only screen and (max-width: 700px) {
       height: 75vh;
+      .heroImg {
+        height: 75vh;
+      }
       .overlay {
         h1 {
           margin: 10rem 1rem;
@@ -223,6 +239,8 @@ const CommitteeStyles = styled.div`
   }
 `;
 
+const CommitteesStyles = styled.div``;
+
 const FormStyles = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -319,7 +337,7 @@ export default function BoardMembers({ data, pageContext }) {
       <SEO title="Board Members" />
       <HeroStyles>
         <div className="heroBG">
-          <div className="faqImg" />
+          <div className="heroImg" />
           <div className="overlay">
             <h1>Board Members</h1>
             <div className="startTriangle" />

@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import { PageCardStyles } from '../styles/PageCardStyles';
 import MinutesItemGrid from '../components/MinutesItemGrid';
 import SEO from '../components/SEO';
+import sunset from '../assets/images/prhoa-sunset.jpg';
 
 const MinuteStyles = styled.div`
   .heroBG {
@@ -12,6 +12,18 @@ const MinuteStyles = styled.div`
     width: 100vw;
     height: 100vh;
     margin: 0;
+    .minutesImg {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-image: url(${sunset});
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
     .overlay {
       display: flex;
       flex-flow: column nowrap;
@@ -46,6 +58,9 @@ const MinuteStyles = styled.div`
     }
     @media only screen and (max-width: 700px) {
       height: 75vh;
+      .minutesImg {
+        height: 75vh;
+      }
       .overlay {
         h1 {
           margin: 10rem 1rem;
@@ -66,16 +81,14 @@ export default function Minutes() {
       <SEO title="Board Minutes" />
       <MinuteStyles>
         <div className="heroBG">
-          <div className="faqImg" />
+          <div className="minutesImg" />
           <div className="overlay">
             <h1>Board Minutes</h1>
             <div className="startTriangle" />
           </div>
         </div>
       </MinuteStyles>
-      <PageCardStyles>
-        <MinutesItemGrid />
-      </PageCardStyles>
+      <MinutesItemGrid />
     </>
   );
 }

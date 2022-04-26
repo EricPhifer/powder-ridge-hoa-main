@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { CardStyles, ItemStyles } from '../styles/PageCardStyles';
+import { ItemStyles } from '../styles/PageCardStyles';
 
 function countOrder(allCcrs) {
   const counts = allCcrs.map((ccr) => ccr);
@@ -26,19 +26,17 @@ export default function CcrsItemGrid() {
   const order = countOrder(allCcrs);
 
   return (
-    <CardStyles>
-      <ItemStyles>
-        {order.map((ccr) => (
-          <div key={ccr.id} className="card">
-            <div className="title">{ccr.ccr}</div>
-            <div className="content">{ccr.ccrContent}</div>
-            <div className="rightAlign">
-              {'§'}
-              {ccr.refId} {/* will become {ccr.refIdDisplay} */}
-            </div>
+    <ItemStyles>
+      {order.map((ccr) => (
+        <div key={ccr.id} className="card">
+          <div className="title">{ccr.ccr}</div>
+          <div className="content">{ccr.ccrContent}</div>
+          <div className="rightAlign">
+            {'§'}
+            {ccr.refId} {/* will become {ccr.refIdDisplay} */}
           </div>
-        ))}
-      </ItemStyles>
-    </CardStyles>
+        </div>
+      ))}
+    </ItemStyles>
   );
 }

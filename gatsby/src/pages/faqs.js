@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import FaqItemGrid from '../components/FaqItemGrid';
 import SEO from '../components/SEO';
-import { PageCardStyles } from '../styles/PageCardStyles';
+import mountains from '../assets/images/prhoa-view-over-mountains.jpg';
 
 const FAQStyles = styled.div`
   .heroBG {
@@ -11,6 +11,18 @@ const FAQStyles = styled.div`
     width: 100vw;
     height: 100vh;
     margin: 0;
+    .faqImg {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-image: url(${mountains});
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
     .overlay {
       display: flex;
       flex-flow: column nowrap;
@@ -45,6 +57,9 @@ const FAQStyles = styled.div`
     }
     @media only screen and (max-width: 700px) {
       height: 75vh;
+      .faqImg {
+        height: 75vh;
+      }
       .overlay {
         h1 {
           margin: 10rem 1rem;
@@ -72,9 +87,7 @@ export default function Faqs() {
           </div>
         </div>
       </FAQStyles>
-      <PageCardStyles>
-        <FaqItemGrid />
-      </PageCardStyles>
+      <FaqItemGrid />
     </>
   );
 }
