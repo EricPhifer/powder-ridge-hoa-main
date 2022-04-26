@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
     background-size: 100%;
     background-attachment: fixed;
     font-size: 10px;
+    overflow-x: hidden;
   }
 
   body {

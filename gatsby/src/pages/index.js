@@ -24,11 +24,11 @@ const HomeStyles = styled.div`
       display: flex;
       flex-flow: column nowrap;
       h1 {
-        margin: 30rem 1rem 0;
+        margin: 30vmin 1rem 0;
         color: #fff;
         font-size: 8vmin;
         text-shadow: 3px 3px 10px black;
-        font-family: 'Canto', 'Gill Sans', 'Gill Sans MT', 'Calibri',
+        font-family: 'Canto', 'Palatino', 'Gill Sans', 'Gill Sans MT', 'Calibri',
           'Trebuchet MS', sans-serif;
         font-style: italic;
         font-weight: bold;
@@ -87,7 +87,7 @@ const HomeStyles = styled.div`
       flex-direction: column;
       justify-content: center;
       h3 {
-        font-family: 'Canto', 'Gill Sans', 'Gill Sans MT', 'Calibri',
+        font-family: 'Canto', 'Palatino', 'Gill Sans', 'Gill Sans MT', 'Calibri',
           'Trebuchet MS', sans-serif;
         font-style: italic;
         font-weight: bold;
