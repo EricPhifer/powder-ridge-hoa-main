@@ -131,7 +131,6 @@ export default function HomePage({ data }) {
             <SanityImage
               {...home.image}
               alt="Powder Ridge Homes"
-              height={500}
               id="homeImg"
               style={{
                 objectFit: 'cover',
