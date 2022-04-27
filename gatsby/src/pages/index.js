@@ -126,7 +126,7 @@ export default function HomePage({ data }) {
     <>
       <SEO title="Home Page" />
       {homepage.map((home) => (
-        <HomeStyles key={home.id}>
+        <HomeStyles key={homepage.id}>
           <div className="heroBG">
             <SanityImage
               {...home.image}

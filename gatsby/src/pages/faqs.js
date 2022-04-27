@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SanityImage from 'gatsby-plugin-sanity-image';
 import FaqItemGrid from '../components/FaqItemGrid';
 import SEO from '../components/SEO';
 import mountains from '../assets/images/prhoa-view-over-mountains.jpg';
@@ -11,7 +12,7 @@ const FAQStyles = styled.div`
     width: 100vw;
     height: 100vh;
     margin: 0;
-    .faqImg {
+    img {
       width: 100vw;
       height: 100vh;
       position: absolute;
@@ -74,13 +75,22 @@ const FAQStyles = styled.div`
   }
 `;
 
-export default function Faqs() {
+export default function Faqs({ data }) {
+  const faqs = data.faqs.nodes;
   return (
     <>
       <SEO title="Frequently Asked Questions" />
       <FAQStyles>
         <div className="heroBG">
-          <div className="faqImg" />
+          <SanityImage
+            {...faqs.image}
+            alt="Powder Ridge Homes"
+            id="faqImg"
+            style={{
+              objectFit: 'cover',
+              auto: 'format',
+            }}
+          />
           <div className="overlay">
             <h1>Frequently Asked Questions</h1>
             <div className="startTriangle" />

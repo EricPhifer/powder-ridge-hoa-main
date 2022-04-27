@@ -9,6 +9,7 @@ import faqs from './faqs';
 import ccrs from './ccrs';
 import committees from './committees';
 import homepage from './homepage';
+import headers from './headers';
 import termsConditions from './termsConditions';
 import privacyPolicy from './privacyPolicy';
 import minutes from './minutes';
@@ -29,6 +30,7 @@ export default createSchema({
     ccrs,
     committees,
     homepage,
+    headers,
     termsConditions,
     privacyPolicy,
     minutes,
