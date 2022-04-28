@@ -38,6 +38,7 @@ const HomeStyles = styled.div`
         height: 20vh;
         position: absolute;
         bottom: 0;
+        left: 0;
         background-image: linear-gradient(
             to bottom right,
             transparent 50%,
