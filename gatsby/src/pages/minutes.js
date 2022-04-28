@@ -16,7 +16,7 @@ const MinuteStyles = styled.div`
       width: 100vw;
       height: 100vh;
       position: absolute;
-      top: 0;
+      top: 0;xs
       left: 0;
       z-index: -1;
       background-image: url(${sunset});
@@ -53,6 +53,7 @@ const MinuteStyles = styled.div`
         background-position: left, right;
         @media only screen and (max-width: 700px) {
           height: 15vh;
+          z-index: -1;
         }
       }
     }
@@ -65,10 +66,6 @@ const MinuteStyles = styled.div`
         h1 {
           margin: 10rem 1rem;
           font-size: 4rem;
-        }
-        .startTriangle {
-          bottom: 25vh;
-          z-index: -1;
         }
       }
     }

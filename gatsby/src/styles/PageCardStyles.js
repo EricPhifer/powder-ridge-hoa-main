@@ -2,11 +2,9 @@ import styled from 'styled-components';
 
 export const ItemStyles = styled.div`
   max-width: 800px;
-  margin: 0 auto;
+  margin: 4rem auto;
   position: relative;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  background-color: #fff;
   z-index: -1;
   h4 {
     text-align: center;
