@@ -105,36 +105,11 @@ const MemberStyles = styled.div`
     font-size: 1.6rem;
   }
   .description {
-    padding-bottom: 1rem;
-    padding-right: 0.3rem;
-    padding-left: 0.3rem;
+    text-align: justify;
   }
   .content {
     position: relative;
     line-height: 1.3;
-  }
-  ul {
-    list-style-type: none;
-    li {
-      width: 100%;
-      display: inline;
-      text-align: center;
-      margin: 0.5rem;
-    }
-  }
-  a {
-    text-decoration: none;
-    color: white;
-  }
-  button {
-    padding: 0.5rem 2rem;
-    text-align: center;
-    text-decoration: none;
-    margin-top: 0.5rem;
-  }
-  button:hover {
-    border: 0.2rem solid orangered;
-    box-shadow: 5px 5px 10px black;
   }
   .memberName {
     padding-bottom: 0;
@@ -338,31 +313,20 @@ export default function BoardMembers({ data, pageContext }) {
             <div className="memberName">{member.name}</div>
             <div className="position">{member.position}</div>
             <div className="description">{member.description}</div>
-            <ul>
-              <li>
-                <button
-                  type="button"
-                  name={member.position}
-                  id={member.id}
-                  className="memberbtn"
-                >
-                  <a href="#formContainer">Email {member.name}</a>
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  name={member.position}
-                  id={member.id}
-                  className="memberbtn call"
-                >
-                  <a href={`tel:${member.phone}`}>Call {member.name}</a>
-                </button>
-              </li>
-            </ul>
+            <button
+              type="button"
+              name={member.position}
+              id={member.id}
+              className="memberbtn call"
+            >
+              <a href={`tel:${member.phone}`}>Call {member.name}</a>
+            </button>
           </div>
         </MemberStyles>
       ))}
+      <button type="button" className="memberbtn">
+        <a href="#formContainer">Send a Message to the Board</a>
+      </button>
       <CommitteesStyles>
         {committees.map((committee) => (
           <CommitteeStyles>

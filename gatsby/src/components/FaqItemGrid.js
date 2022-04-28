@@ -3,9 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { ItemStyles } from '../styles/PageCardStyles';
 
-const FAQGridStyles = styled.div`
-  background: #fff;
-`;
+const FAQGridStyles = styled.div``;
 
 export default function FaqItemGrid() {
   const { faqs } = useStaticQuery(graphql`

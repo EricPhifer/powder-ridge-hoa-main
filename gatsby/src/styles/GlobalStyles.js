@@ -26,21 +26,29 @@ const GlobalStyles = createGlobalStyle`
   }
 
   button {
-    background: var(--red);
+    display: flex;
+    margin: 1.5rem auto;
+    padding: 2rem 0;
+    width: 100%;
+    justify-content: center;
+    box-shadow: 3px 3px 10px black;
+    background: darkcyan;
     color: white;
     border: 0;
-    padding: 0.6rem 1rem;
-    border-radius: 2px;
+    border-radius: 40px;
     cursor: pointer;
     --cast: 2px;
-    box-shadow: var(--cast) var(--cast) 0 var(--grey);
     text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.2);
-    transition: all 0.2s;
+    transition: all 0.05s;
+    a {
+      text-decoration: none;
+      color: white;
+    }
     &:hover {
-      --cast: 4px;
+      border: 0.2rem solid #fff;s
     }
   }
-  
+
   /* .gatsby-image-wrapper img[src*=base64\\,] {
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
