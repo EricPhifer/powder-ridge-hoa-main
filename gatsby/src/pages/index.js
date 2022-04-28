@@ -50,6 +50,7 @@ const HomeStyles = styled.div`
         background-position: left, right;
         @media only screen and (max-width: 700px) {
           height: 15vh;
+          z-index: -1;
         }
       }
     }
@@ -62,10 +63,6 @@ const HomeStyles = styled.div`
         h1 {
           margin: 10rem 1rem;
           font-size: 4rem;
-        }
-        .startTriangle {
-          bottom: 25vh;
-          z-index: -1;
         }
       }
     }
