@@ -38,10 +38,10 @@ const TreasurerStyles = styled.div`
       border-bottom: 1px black solid;
       padding: 1rem;
     }
-  }
-  .thirds {
+  }l
+  .dual {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     border: 1px solid black;
     font-size: 1rem;
     div {
@@ -49,6 +49,16 @@ const TreasurerStyles = styled.div`
       place-self: center;
     }
   }
+  // .thirds {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr 1fr;
+  //   border: 1px solid black;
+  //   font-size: 1rem;
+  //   div {
+  //     padding: 0.5rem 0;
+  //     place-self: center;
+  //   }
+  // }
   // .quarter {
   //   display: grid;
   //   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -68,10 +78,14 @@ const TreasurerStyles = styled.div`
     width: 100%;
     margin: 0;
     padding: 0;
-    .thirds {
+    .dual {
       div {
         border: 0.5 solid black;
       }
+    // .thirds {
+    //   div {
+    //     border: 0.5 solid black;
+    //   }
     // .quarter {
     //   div {
     //     padding: 0;
@@ -186,7 +200,7 @@ export default function MinutesItemGrid() {
                         {minute.insertReport.dateGenerated}
                       </div>
                     </li>
-                    <li className="quarter thirds heading">
+                    <li className="quarter thirds dual heading">
                       {/* <div data-name="Date">
                         <strong>Date</strong>
                       </div> */}
@@ -196,16 +210,16 @@ export default function MinutesItemGrid() {
                       <div data-name="Cost">
                         <strong>Cost</strong>
                       </div>
-                      <div data-name="Timeframe">
+                      {/* <div data-name="Timeframe">
                         <strong>Time</strong>
-                      </div>
+                      </div> */}
                     </li>
                     {minute.insertReport.expenses.map((expense) => (
-                      <li key={expense.id} className="quarter thirds">
+                      <li key={expense.id} className="quarter thirds dual">
                         {/* <div>{expense.dayOfExpense}</div> */}
                         <div>{expense.nameOfExpense}</div>
                         <div>{formatMoney(expense.amountOfExpense)}</div>
-                        <div>{expense.timeframe}</div>
+                        {/* <div>{expense.timeframe}</div> */}
                       </li>
                     ))}
                     <li className="full">
