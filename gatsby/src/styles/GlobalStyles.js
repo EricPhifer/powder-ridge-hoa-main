@@ -27,9 +27,10 @@ const GlobalStyles = createGlobalStyle`
 
   button {
     display: flex;
+    max-width: 800px;
+    width: 100%;
     margin: 1.5rem auto;
     padding: 2rem 0;
-    width: 100%;
     justify-content: center;
     box-shadow: 3px 3px 10px black;
     background: darkcyan;

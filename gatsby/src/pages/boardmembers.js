@@ -76,28 +76,40 @@ const HeroStyles = styled.div`
 `;
 
 const MemberStyles = styled.div`
-  --columns: 4;
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(var(--columns), minmax(auto, 3fr));
-  gap: 2rem;
-  margin-top: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  text-shadow: 2px 2px 3px white;
+  display: flex;
+  padding: 2rem;
+  text-shadow: -1px 1px 0 #fff, 1px 1px 0 #fff, 1px -1px 0 #fff,
+    -1px -1px 0 #fff;
+  @media only screen and (max-width: 700px) {
+    flex-flow: column nowrap;
+  }
   .image {
-    justify-self: center;
     align-self: center;
-    grid-column: 1 / span 1;
+    text-align: center;
   }
   img {
     border: 3rem grey groove;
+    max-width: 800px;
+    width: 0 auto;
+    width: 50%;
+    @media only screen and (max-width: 700px) {
+      width: 30%;
+    }
+    @media only screen and (max-width: 500px) {
+      width: 50%;
+    }
+    @media only screen and (max-width: 400px) {
+      width: 73%;
+    }
+  }
+  #-97c20eb2-5ca4-53e1-811a-c52a7ea1a30d {
+    height: auto;
   }
   .card {
-    justify-self: center;
     align-self: center;
-    grid-column: 2 / span 3;
+    width: 100%;
   }
   .position {
     padding-top: 0;
@@ -116,27 +128,10 @@ const MemberStyles = styled.div`
     font-weight: bold;
     font-size: 2.2rem;
   }
-  @media (max-width: 900px) {
-    --columns: 2;
-    .image {
-      grid-column: 1 / span 2;
-    }
-    .card {
-      grid-column: 1 / span 2;
-      padding-left: 1rem;
-    }
-    img {
-      max-width: 40%;
-      padding-left: 29%;
-      border: none;
-    }
-  }
   @media (max-width: 400px) {
     font-size: 1.5rem;
     ul {
-      display: grid;
       margin-left: -15%;
-      grid-template-columns: 1fr;
     }
     button {
       margin: 0.5rem;
@@ -157,29 +152,33 @@ const MemberStyles = styled.div`
 const CommitteeStyles = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  border: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   padding: 2rem;
   div {
+    max-width: 800px;
+    margin: 0 auto;
     padding-top: 1rem;
     padding-bottom: 0.5rem;
     line-height: 1.43;
     strong {
-      border-bottom: 2px lightgrey groove;
       padding: 0.2rem;
       font-size: 2.3rem;
     }
   }
-  .contact {
+  img {
+    box-shadow: 3px 3px 10px black;
+  }
+  button {
     text-align: center;
     a {
       text-decoration: none;
       color: white;
     }
-    button:hover {
-      border: 0.2rem solid orangered;
+    &:hover {
       box-shadow: 5px 5px 10px black;
     }
-    button:active {
+    &:active {
       border: 0.2rem solid magenta;
       color: magenta;
     }
@@ -225,7 +224,6 @@ const FormStyles = styled.div`
     width: 99%;
   }
   input,
-  button,
   textarea,
   select {
     margin: 5px 0;
@@ -242,11 +240,8 @@ const FormStyles = styled.div`
     color: #7c7c7c;
   }
   .submitButton {
-    margin-top: 1.5rem;
-    &:hover {
-      border: 0.2rem solid orangered;
-      box-shadow: 5px 5px 10px black;
-    }
+    max-width: 800px;
+    margin-top: 1.5rem auto;
   }
   @media (max-width: 400px) {
     input,
@@ -293,15 +288,12 @@ export default function BoardMembers({ data, pageContext }) {
       {members.map((member) => (
         <MemberStyles key={member.id}>
           {member.image ? (
-            <div className="image">
+            <div className="image" id={member.id}>
               <SanityImage
                 {...member.image}
                 alt={member.name}
-                height={1000}
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain',
+                  objectFit: 'cover',
                   auto: 'format',
                 }}
               />
@@ -358,23 +350,18 @@ export default function BoardMembers({ data, pageContext }) {
               <div className="contact">
                 <strong>How do I contact the committee?</strong>{' '}
                 <div className="container">
-                  <button
-                    type="button"
-                    name={committee.name}
-                    id={committee.id}
-                    className="committeebtn call"
-                  >
-                    <a href={`tel:${committee.phone}`}>Call {committee.name}</a>
-                  </button>
+                  Use the form below and select "Committee Chairman"
                 </div>
                 <div className="container">
                   <button
                     type="button"
                     name={committee.name}
                     id={committee.id}
-                    className="committeebtn"
+                    className="committeebtn call"
                   >
-                    <a href="#formContainer">Email {committee.name}</a>
+                    <a href={`tel:${committee.phone}`}>
+                      or Call {committee.name}
+                    </a>
                   </button>
                 </div>
               </div>
