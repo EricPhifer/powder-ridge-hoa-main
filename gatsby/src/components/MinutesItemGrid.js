@@ -16,6 +16,9 @@ const GridStyles = styled.div`
     .title {
     }
     .content {
+      .newBiz {
+        padding: 0.5rem 0;
+      }
     }
   }
 `;
@@ -48,9 +51,6 @@ const TreasurerStyles = styled.div`
       padding: 0.5rem 0;
       place-self: center;
     }
-  }
-  .newBiz {
-    padding: 0.5rem 0;
   }
   // .thirds {
   //   display: grid;
