@@ -269,8 +269,8 @@ export default function MinutesItemGrid() {
               </div>
               <br />
               <div className="content">Meeting ended at: {endMDT}</div>
-              <br />
-              <div className="content">Tags: {minute.tags}</div>
+              {/* <br />
+              <div className="content">Tags: {minute.tags}</div> */}
             </div>
           </div>
         );
