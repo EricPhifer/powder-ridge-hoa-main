@@ -49,6 +49,9 @@ const TreasurerStyles = styled.div`
       place-self: center;
     }
   }
+  .newBiz {
+    padding: 0.5rem 0;
+  }
   // .thirds {
   //   display: grid;
   //   grid-template-columns: 1fr 1fr 1fr;
