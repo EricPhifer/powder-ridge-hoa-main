@@ -38,7 +38,7 @@ const TreasurerStyles = styled.div`
       border-bottom: 1px black solid;
       padding: 1rem;
     }
-  }l
+  }
   .dual {
     display: grid;
     grid-template-columns: 1fr 1fr;
