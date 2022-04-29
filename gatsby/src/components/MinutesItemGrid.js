@@ -2,71 +2,99 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { DateTime } from 'luxon';
 import styled from 'styled-components';
-import { ItemStyles } from '../styles/PageCardStyles';
 import formatMoney from '../../utils/formatMoney';
 
+const GridStyles = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  .card {
+    margin: 3rem 1rem;
+    padding: 1rem;
+    border: 1px lightgray solid;
+    box-shadow: 3px 3px 10px black;
+    .title {
+    }
+    .content {
+    }
+  }
+`;
+
 const TreasurerStyles = styled.div`
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: 4fr;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  section {
+  p {
+    padding: 0 1rem;
   }
   ul {
     list-style-type: none;
-    padding-left: 0;
+    padding: 0;
+    text-align: center;
+    .heading {
+      background: #e4e4e4;
+    }
   }
   .full {
-    display: grid;
-    column-count: 4fr;
     div {
-      border: 1px black solid;
-      text-align: center;
+      border-top: 1px black solid;
+      border-bottom: 1px black solid;
       padding: 1rem;
     }
   }
-  .quarter {
+  .thirds {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 1px solid black;
+    font-size: 1rem;
     div {
-      padding: 0.7rem;
-      border: 2px solid black;
+      padding: 0.5rem 0;
+      place-self: center;
     }
   }
-  @media (max-width: 900px) {
-    width: 100%;
-    margin-left: 0;
-    padding-left: 0;
-  }
+  // .quarter {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr 1fr 1fr;
+  //   border: 1px solid black;
+  //   font-size: 1rem;
+  //   div {
+  //     padding: 0.5rem;
+  //   place-self: center;
+  //   }
+  // }
+  // @media (max-width: 900px) {
+  //   width: 100%;
+  //   margin: 0;
+  //   padding: 0;
+  // }
   @media (max-width: 400px) {
     width: 100%;
-    margin-left: 0;
-    padding-left: 0;
-    .quarter {
-      div {
-        padding: 0;
-        border: 0.5 solid black;
-      }
-    }
-  }
-  @media (max-width: 524px) and (min-width: 401px) {
-    .quarter {
-      font-size: 1.28rem;
+    margin: 0;
+    padding: 0;
+    .thirds {
       div {
         border: 0.5 solid black;
       }
-    }
+    // .quarter {
+    //   div {
+    //     padding: 0;
+    //     border: 0.5 solid black;
+    //   }
+    // }
   }
-  @media (max-width: 374px) and (min-width: 320px) {
-    .quarter {
-      font-size: 1.1rem;
-      div {
-        border: 0.5 solid black;
-      }
-    }
-  }
+  // @media (max-width: 524px) and (min-width: 401px) {
+  //   .quarter {
+  //     font-size: 1.28rem;
+  //     div {
+  //       border: 0.5 solid black;
+  //     }
+  //   }
+  // }
+  // @media (max-width: 374px) and (min-width: 320px) {
+  //   .quarter {
+  //     font-size: 1.1rem;
+  //     div {
+  //       border: 0.5 solid black;
+  //     }
+  //   }
+  // }
 `;
 
 export default function MinutesItemGrid() {
@@ -118,7 +146,7 @@ export default function MinutesItemGrid() {
   const allMinutes = minutes.nodes;
 
   return (
-    <div>
+    <GridStyles>
       {allMinutes.map((minute) => {
         const endMDT = DateTime.fromISO(minute.endTime, {
           zone: 'utc-6',
@@ -127,7 +155,7 @@ export default function MinutesItemGrid() {
           zone: 'utc-6',
         }).toFormat('h:mma MM/dd/yyyy');
         return (
-          <ItemStyles key={minute._id}>
+          <div key={minute._id}>
             <div className="card">
               <div className="title">Called to order by: {minute.name}</div>
               <div className="content">Meeting began at: {startMDT}</div>
@@ -143,7 +171,7 @@ export default function MinutesItemGrid() {
               </div>
               <br />
               <TreasurerStyles>
-                The treasurers report is as follows:{' '}
+                <p>The treasurers report is as follows:</p>
                 <section>
                   <ul>
                     <li className="full">
@@ -158,10 +186,10 @@ export default function MinutesItemGrid() {
                         {minute.insertReport.dateGenerated}
                       </div>
                     </li>
-                    <li className="quarter">
-                      <div data-name="Date">
+                    <li className="quarter thirds heading">
+                      {/* <div data-name="Date">
                         <strong>Date</strong>
-                      </div>
+                      </div> */}
                       <div data-name="Place">
                         <strong>Place</strong>
                       </div>
@@ -173,8 +201,8 @@ export default function MinutesItemGrid() {
                       </div>
                     </li>
                     {minute.insertReport.expenses.map((expense) => (
-                      <li key={expense.id} className="quarter">
-                        <div>{expense.dayOfExpense}</div>
+                      <li key={expense.id} className="quarter thirds">
+                        {/* <div>{expense.dayOfExpense}</div> */}
                         <div>{expense.nameOfExpense}</div>
                         <div>{formatMoney(expense.amountOfExpense)}</div>
                         <div>{expense.timeframe}</div>
@@ -227,9 +255,9 @@ export default function MinutesItemGrid() {
               <br />
               <div className="content">Tags: {minute.tags}</div>
             </div>
-          </ItemStyles>
+          </div>
         );
       })}
-    </div>
+    </GridStyles>
   );
 }
