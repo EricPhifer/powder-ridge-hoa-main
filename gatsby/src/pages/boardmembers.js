@@ -305,14 +305,14 @@ export default function BoardMembers({ data, pageContext }) {
             <div className="memberName">{member.name}</div>
             <div className="position">{member.position}</div>
             <div className="description">{member.description}</div>
-            <button
+            {/* <button
               type="button"
               name={member.position}
               id={member.id}
               className="memberbtn call"
             >
               <a href={`tel:${member.phone}`}>Call {member.name}</a>
-            </button>
+            </button> */}
           </div>
         </MemberStyles>
       ))}
