@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -9,6 +8,9 @@ const FooterStyles = styled.footer`
     text-align: center;
     font-size: 1.4rem;
     list-style-type: none;
+    @media only screen and (max-width: 350px) {
+      font-size: 1rem;
+    }
   }
   a {
     text-decoration: none;
@@ -31,8 +33,13 @@ export default function Footer() {
         </li>
         <li>
           <div />
-          <Link to="/privacypolicy">Privacy Policy</Link> |{' '}
-          <Link to="/termsconditions">Terms &amp; Conditions</Link>
+          <a href="https://powderridgegrandmesa.com/privacypolicy">
+            Privacy Policy
+          </a>{' '}
+          |{' '}
+          <a href="https://powderridgegrandmesa.com/termsconditions">
+            Terms &amp; Conditions
+          </a>
         </li>
       </ul>
     </FooterStyles>

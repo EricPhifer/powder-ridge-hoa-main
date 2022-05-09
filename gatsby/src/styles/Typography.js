@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const Typography = createGlobalStyle`
   html {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
     color: var(--black);
   }
   p, li {

@@ -7,6 +7,8 @@ const NavStyles = styled.nav`
   background-color: #fff;
   padding: 1rem 3rem;
   box-shadow: 0 3px 10px black;
+  position: relative;
+  z-index: 1;
   ul {
     margin: 0;
     padding: 0;
@@ -23,15 +25,22 @@ const NavStyles = styled.nav`
   .logo {
     width: 9rem;
     height: 7rem;
+    margin: 1rem 0;
     background-image: url(${bg});
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
   }
   a {
-    font-size: 2rem;
+    font-size: 1.65rem;
     text-decoration: none;
     position: relative;
+    &:hover {
+      color: var(--green);
+    }
+    &:active {
+      color: var(--lightgreen);
+    }
     &:after {
       content: '';
       border-bottom: 2px solid black;
@@ -41,13 +50,12 @@ const NavStyles = styled.nav`
       transition: all 0.2s ease-in-out;
       width: 0;
     }
-
     &:hover:after {
       left: 0;
       width: 100%;
     }
     &[aria-current='page'] {
-      color: var(--red);
+      color: var(--lightgreen);
     }
   }
 
@@ -86,14 +94,14 @@ const NavStyles = styled.nav`
     }
   }
   /* Hide menu on small screens */
-  @media only screen and (max-width: 599px) {
+  @media only screen and (max-width: 749px) {
     display: none;
   }
 `;
 
 const MobileNavStyles = styled.nav`
   /* Show compressed menu on small screens */
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 750px) {
     display: none;
   }
   width: 100vw;
@@ -102,6 +110,14 @@ const MobileNavStyles = styled.nav`
   background-color: #fff;
   padding: 1rem 3rem;
   box-shadow: 0 3px 10px black;
+  z-index: 1;
+  a {
+    color: var(--green);
+    font-size: 1.5rem;
+  }
+  a[aria-current='page'] {
+    color: var(--lightgreen);
+  }
   .logo {
     width: 9rem;
     height: 7rem;
@@ -110,6 +126,7 @@ const MobileNavStyles = styled.nav`
     background-repeat: no-repeat;
     background-position: center center;
   }
+
   #menuToggle {
     display: flex;
     flex-direction: column;
@@ -208,16 +225,21 @@ export default function Nav() {
             </Link>
           </li>
           <li>
-            <Link to="/faqs">FAQs</Link>
+            <a href="https://powderridgegrandmesa.com/faqs">FAQs</a>
           </li>
           <li>
-            <Link to="/ccrs">CCRs</Link>
+            <a href="https://powderridgegrandmesa.com/ccrs">CCRs</a>
           </li>
           <li>
-            <Link to="/boardmembers">Board Members</Link>
+            <a href="https://powderridgegrandmesa.com/boardmembers">
+              Board Members
+            </a>
           </li>
           <li>
-            <Link to="/minutes">Board Minutes</Link>
+            <a href="https://powderridgegrandmesa.com/minutes">Board Minutes</a>
+          </li>
+          <li className="residentAccess">
+            <Link to="/">Resident Access</Link>
           </li>
         </ul>
       </NavStyles>
@@ -234,16 +256,23 @@ export default function Nav() {
               </Link>
             </li>
             <li className="mobileLink">
-              <Link to="/faqs">FAQs</Link>
+              <a href="https://powderridgegrandmesa.com/faqs">FAQs</a>
             </li>
             <li className="mobileLink">
-              <Link to="/ccrs">CCRs</Link>
+              <a href="https://powderridgegrandmesa.com/ccrs">CCRs</a>
             </li>
             <li className="mobileLink">
-              <Link to="/boardmembers">Board Members</Link>
+              <a href="https://powderridgegrandmesa.com/boardmembers">
+                Board Members
+              </a>
             </li>
             <li className="mobileLink">
-              <Link to="/minutes">Board Minutes</Link>
+              <a href="https://powderridgegrandmesa.com/minutes">
+                Board Minutes
+              </a>
+            </li>
+            <li className="residentAccess">
+              <Link to="/">Resident Access</Link>
             </li>
           </ul>
         </div>

@@ -4,9 +4,10 @@ const GlobalStyles = createGlobalStyle`
   :root {
     --red: #FF4949;
     --black: #2E2E2E;
-    --yellow: #ffc600;
-    --white: #fff;
-    --grey: #efefef;
+    --green: #016B37;
+    --white: #EDF4ED;
+    --brown: #51291E;
+    --lightgreen: #ABD1B5;
   }
   html {
     background-image: eggshell;
@@ -49,7 +50,9 @@ const GlobalStyles = createGlobalStyle`
       border: 0.2rem solid #fff;s
     }
   }
-
+  .userWelcome {
+    padding: 2rem;
+  }
   /* .gatsby-image-wrapper img[src*=base64\\,] {
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
