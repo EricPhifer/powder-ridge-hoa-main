@@ -12,7 +12,7 @@ export const ItemStyles = styled.div`
   .card {
     padding: 2rem;
     margin: 1rem;
-    border: 1px black solid;
+    border: 3px var(--brown) solid;
     box-shadow: 5px 5px 10px black;
   }
   .ccrCard {

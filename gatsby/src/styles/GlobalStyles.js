@@ -35,8 +35,8 @@ const GlobalStyles = createGlobalStyle`
     padding: 2rem 0;
     justify-content: center;
     box-shadow: 3px 3px 10px black;
-    background: darkcyan;
-    color: white;
+    background: var(--lightgreen);
+    color: var(--white);
     border: 0;
     border-radius: 40px;
     cursor: pointer;
@@ -45,10 +45,14 @@ const GlobalStyles = createGlobalStyle`
     transition: all 0.05s;
     a {
       text-decoration: none;
-      color: white;
+      color: var(--white);
     }
     &:hover {
-      border: 0.2rem solid #fff;s
+      background: var(--white);
+      color: var(--lightgreen);
+      a {
+        color: var(--lightgreen);
+      }
     }
   }
   .userWelcome {

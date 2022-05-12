@@ -28,8 +28,6 @@ const HomeStyles = styled.div`
         color: #fff;
         font-size: 8vmin;
         text-shadow: 3px 3px 10px black;
-        font-family: 'Canto', 'Palatino', 'Gill Sans', 'Gill Sans MT', 'Calibri',
-          'Trebuchet MS', sans-serif;
         font-style: italic;
         font-weight: bold;
       }
@@ -79,14 +77,12 @@ const HomeStyles = styled.div`
       height: 250px;
       margin: 2rem;
       padding: 1rem;
-      border: 2px solid lightgray;
+      border: 3px solid var(--brown);
       box-shadow: 3px 3px 10px black;
       display: flex;
       flex-direction: column;
       justify-content: center;
       h3 {
-        font-family: 'Canto', 'Palatino', 'Gill Sans', 'Gill Sans MT', 'Calibri',
-          'Trebuchet MS', sans-serif;
         font-style: italic;
         font-weight: bold;
         font-size: 2.5rem;

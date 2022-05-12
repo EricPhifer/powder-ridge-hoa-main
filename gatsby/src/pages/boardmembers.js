@@ -35,8 +35,6 @@ const HeroStyles = styled.div`
         color: #fff;
         font-size: 8vmin;
         text-shadow: 3px 3px 10px black;
-        font-family: 'Canto', 'Palatino', 'Gill Sans', 'Gill Sans MT', 'Calibri',
-          'Trebuchet MS', sans-serif;
         font-style: italic;
         font-weight: bold;
       }
@@ -90,7 +88,6 @@ const MemberStyles = styled.div`
     text-align: center;
   }
   img {
-    border: 3rem grey groove;
     max-width: 800px;
     width: 0 auto;
     width: 50%;
@@ -173,7 +170,7 @@ const CommitteeStyles = styled.div`
     text-align: center;
     a {
       text-decoration: none;
-      color: white;
+      color: var(--white);
     }
     &:hover {
       box-shadow: 5px 5px 10px black;

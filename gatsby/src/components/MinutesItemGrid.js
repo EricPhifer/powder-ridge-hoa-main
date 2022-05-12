@@ -11,7 +11,7 @@ const GridStyles = styled.div`
   .card {
     margin: 3rem 1rem;
     padding: 1rem;
-    border: 1px lightgray solid;
+    border: 3px var(--brown) solid;
     box-shadow: 3px 3px 10px black;
     .title {
     }
