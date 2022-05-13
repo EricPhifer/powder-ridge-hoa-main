@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterStyles = styled.footer`
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 190px);
   ul {
     margin: 0;
     padding: 8vmin 0;
@@ -18,6 +21,9 @@ const FooterStyles = styled.footer`
     &:hover {
       color: tomato;
     }
+  }
+  @media only screen and (max-width: 350px) {
+    left: calc(50% - 150px);
   }
 `;
 
