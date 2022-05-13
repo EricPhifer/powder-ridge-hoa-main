@@ -239,7 +239,9 @@ export default function Nav() {
             <a href="https://powderridgegrandmesa.com/minutes">Board Minutes</a>
           </li>
           <li className="residentAccess">
-            <Link to="/">Resident Access</Link>
+            <a href="https://login.powderridgegrandmesa.com" rel="noreferrer">
+              Resident Access
+            </a>
           </li>
         </ul>
       </NavStyles>
@@ -256,23 +258,21 @@ export default function Nav() {
               </Link>
             </li>
             <li className="mobileLink">
-              <a href="https://powderridgegrandmesa.com/faqs">FAQs</a>
+              <Link to="/faqs">FAQs</Link>
             </li>
             <li className="mobileLink">
-              <a href="https://powderridgegrandmesa.com/ccrs">CCRs</a>
+              <Link to="/ccrs">CCRs</Link>
             </li>
             <li className="mobileLink">
-              <a href="https://powderridgegrandmesa.com/boardmembers">
-                Board Members
-              </a>
+              <Link to="/boardmembers">Board Members</Link>
             </li>
             <li className="mobileLink">
-              <a href="https://powderridgegrandmesa.com/minutes">
-                Board Minutes
-              </a>
+              <Link to="/minutes">Board Minutes</Link>
             </li>
             <li className="residentAccess">
-              <Link to="/">Resident Access</Link>
+              <a href="https://login.powderridgegrandmesa.com" rel="noreferrer">
+                Resident Access
+              </a>
             </li>
           </ul>
         </div>
