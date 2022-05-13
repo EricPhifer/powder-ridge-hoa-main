@@ -32,7 +32,6 @@ const NavStyles = styled.nav`
     background-position: center center;
   }
   a {
-    font-size: 1.65rem;
     text-decoration: none;
     position: relative;
     &:hover {
