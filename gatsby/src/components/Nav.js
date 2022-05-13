@@ -225,18 +225,16 @@ export default function Nav() {
             </Link>
           </li>
           <li>
-            <a href="https://powderridgegrandmesa.com/faqs">FAQs</a>
+            <Link to="/faqs">FAQs</Link>
           </li>
           <li>
-            <a href="https://powderridgegrandmesa.com/ccrs">CCRs</a>
+            <Link to="/ccrs">CCRs</Link>
           </li>
           <li>
-            <a href="https://powderridgegrandmesa.com/boardmembers">
-              Board Members
-            </a>
+            <Link to="/boardmembers">Board Members</Link>
           </li>
           <li>
-            <a href="https://powderridgegrandmesa.com/minutes">Board Minutes</a>
+            <Link to="/minutes">Board Minutes</Link>
           </li>
           <li className="residentAccess">
             <a href="https://login.powderridgegrandmesa.com" rel="noreferrer">
