@@ -31,8 +31,6 @@ const CCRStyles = styled.div`
         color: #fff;
         font-size: 8vmin;
         text-shadow: 3px 3px 10px black;
-        font-family: 'Canto', 'Palatino', 'Gill Sans', 'Gill Sans MT', 'Calibri',
-          'Trebuchet MS', sans-serif;
         font-style: italic;
         font-weight: bold;
       }
